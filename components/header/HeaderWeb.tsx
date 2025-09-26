@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
-import styles from "./Header.module.scss";
+import styles from "./HeaderWeb.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/Logo.png";
 import CartIcon from "@/assets/icons/CartIcon";
 import ChevronDown from "@/assets/icons/ChevronDown";
+import { useState } from "react";
+import AllCategory from "../allCategory/AllCategory";
 
 export default function Header() {
+  const [showAllCategory, setShowAllCategory] = useState(false);
+
   return (
     <div className={styles.header}>
       <div className={styles["header-top"]}>
@@ -25,9 +31,14 @@ export default function Header() {
       </div>
       <div className={styles["header-bottom"]}>
         <div className={styles["all-category"]}>
-          <p>
+          <p onClick={() => setShowAllCategory(!showAllCategory)}>
             전체 카테고리 <ChevronDown />
           </p>
+          {showAllCategory && (
+            <div className={styles["category-dropdown"]}>
+              <AllCategory />
+            </div>
+          )}
         </div>
         <div className={styles.categories}>
           <Link href="">현수막</Link>

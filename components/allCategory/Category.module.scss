@@ -1,0 +1,18 @@
+.container {
+  .title {
+    display: flex;
+    align-items: center;
+
+    p {
+      color: #154686;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 14px 12px;
+    }
+  }
+  .items {
+    p {
+      padding: 8px 12px;
+    }
+  }
+}

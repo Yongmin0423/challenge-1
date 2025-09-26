@@ -1,4 +1,4 @@
-export default function ChevronRight() {
+export default function ChevronRight({ fill = "#FD914B" }) {
   return (
     <svg
       width="7"
@@ -9,7 +9,7 @@ export default function ChevronRight() {
     >
       <path
         d="M6.33333 4.58341L1.41647 9.16675L0.5 8.31245L4.50042 4.58341L0.5 0.854375L1.41647 8.00686e-05L6.33333 4.58341Z"
-        fill="#FD914B"
+        fill={fill}
       />
     </svg>
   );

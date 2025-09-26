@@ -1,0 +1,22 @@
+.container {
+  padding: 15px 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.zet-production {
+  display: flex;
+  align-items: center;
+  p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  p:first-child {
+    color: #fd914b;
+  }
+
+  .icon {
+    margin: 14px;
+  }
+}
