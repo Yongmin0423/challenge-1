@@ -1,15 +1,65 @@
 import FooterM from "@/components/footer/FooterM";
 import FooterW from "@/components/footer/FooterW";
 import Header from "@/components/header/HeaderW";
+import SwiperComponent from "@/components/swiper/Swiper";
+import Ticket from "@/components/ticket/Ticket";
+import styles from "./MainPage.module.scss";
+
+const slides = [
+  {
+    id: 1,
+    image:
+      "https://png.pngtree.com/thumb_back/fh260/background/20230527/pngtree-cute-persian-cat-wallpaper-hd-1920-x-1080-image_2679659.jpg",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1491466424936-e304919aada7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8MTkyMHgxMDgwJTIwJUVCJUIwJUIwJUVBJUIyJUJEJUVEJTk5JTk0JUVCJUE5JUI0fGVufDB8fDB8fHww",
+  },
+];
+
+const examples = [
+  {
+    id: 1,
+    image:
+      "https://png.pngtree.com/thumb_back/fh260/background/20230525/pngtree-hamster-in-a-christmas-hat-wallpaper-1080-image_2695714.jpg",
+    title: "24시간 연중무휴",
+    descriptions: ["차별점 내용", "차별점 내용"],
+  },
+  {
+    id: 2,
+    image:
+      "https://png.pngtree.com/thumb_back/fh260/background/20230525/pngtree-hamster-in-a-christmas-hat-wallpaper-1080-image_2695714.jpg",
+    title: "24시간 연중무휴",
+    descriptions: ["차별점 내용", "차별점 내용"],
+  },
+  {
+    id: 3,
+    image:
+      "https://png.pngtree.com/thumb_back/fh260/background/20230525/pngtree-hamster-in-a-christmas-hat-wallpaper-1080-image_2695714.jpg",
+    title: "24시간 연중무휴",
+    descriptions: ["차별점 내용", "차별점 내용"],
+  },
+];
 
 export default function MainPage() {
   return (
     <div>
-      <div>
+      <nav>
         <Header />
-      </div>
+      </nav>
+
+      <main>
+        <SwiperComponent slides={slides} />
+        <div className={styles.tickets}>
+          {examples.map((example) => (
+            <Ticket key={example.id} data={example} />
+          ))}
+        </div>
+      </main>
+
       <div>
-        <FooterM />
+        <FooterW />
       </div>
     </div>
   );
