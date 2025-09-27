@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./HeaderWeb.module.scss";
+import styles from "./HeaderW.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/Logo.png";
 import CartIcon from "@/assets/icons/CartIcon";
