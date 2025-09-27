@@ -1,7 +1,6 @@
 import Category from "./Category";
 import styles from "./AllCategory.module.scss";
 import ChevronRight from "@/assets/icons/ChevronRight";
-import Leaf from "@/assets/icons/Leaf";
 
 const categories = [
   {
