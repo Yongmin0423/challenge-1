@@ -1,4 +1,4 @@
-export default function ChevronRight({ fill = "#FD914B" }) {
+export default function ChevronRight({ fill = "#FD914B" }: { fill?: string }) {
   return (
     <svg
       width="7"

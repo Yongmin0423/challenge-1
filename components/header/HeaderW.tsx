@@ -15,10 +15,10 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles["header-top"]}>
-        <Link href="login">로그인</Link>
-        <Link href="join">회원가입</Link>
-        <Link href="orders">주문/배송</Link>
-        <Link href="FAQ">고객센터</Link>
+        <Link href="/login">로그인</Link>
+        <Link href="/join">회원가입</Link>
+        <Link href="/orders">주문/배송</Link>
+        <Link href="/FAQ">고객센터</Link>
       </div>
       <div className={styles["header-middle"]}>
         <Image src={Logo} alt="로고이미지" />
