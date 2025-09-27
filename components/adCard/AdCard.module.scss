@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+}
+
+.image {
+  position: relative;
+  width: 268px;
+  height: 297px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bottom {
+  display: flex;
+  gap: 16px;
+}
+
+.bottom-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  background-color: #fcec4f;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+}

@@ -1,9 +1,14 @@
+"use client";
+
 import FooterM from "@/components/footer/FooterM";
 import FooterW from "@/components/footer/FooterW";
 import Header from "@/components/header/HeaderW";
 import SwiperComponent from "@/components/swiper/Swiper";
 import Ticket from "@/components/ticket/Ticket";
+import DoubleTabs from "@/components/tabs/DoubleTabs";
 import styles from "./MainPage.module.scss";
+import AdBanner from "@/assets/images/AD.png";
+import Image from "next/image";
 
 const slides = [
   {
@@ -51,10 +56,21 @@ export default function MainPage() {
 
       <main>
         <SwiperComponent slides={slides} />
+
         <div className={styles.tickets}>
           {examples.map((example) => (
             <Ticket key={example.id} data={example} />
           ))}
+        </div>
+        <div className={styles.tabs}>
+          <DoubleTabs />
+        </div>
+        <div>
+          <Image width={1440} height={300} src={AdBanner} alt="광고 이미지" />
+        </div>
+
+        <div>
+          <h3>가장 많이 구매하시는 상품이에요!</h3>
         </div>
       </main>
 

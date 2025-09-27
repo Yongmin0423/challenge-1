@@ -1,0 +1,66 @@
+.container {
+  padding: 20px;
+}
+
+.mainTabSection {
+  margin-bottom: 20px;
+}
+
+.tabContainer {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tabItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.mainTabButton {
+  width: 64px;
+  height: 64px;
+  background-color: #edeff2;
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+
+  &.active {
+    border: 2px solid black;
+  }
+}
+
+.subTabButton {
+  padding: 7px 16px;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+
+  &.active {
+    border-bottom: 2px solid black;
+  }
+}
+
+.selectedStatus {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+}

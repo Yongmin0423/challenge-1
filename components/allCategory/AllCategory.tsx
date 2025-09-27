@@ -2,7 +2,7 @@ import Category from "./Category";
 import styles from "./AllCategory.module.scss";
 import ChevronRight from "@/assets/icons/ChevronRight";
 
-const categories = [
+export const categories = [
   {
     title: "현수막",
     items: [
