@@ -1,5 +1,6 @@
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/HeaderWeb";
+import FooterM from "@/components/footer/FooterM";
+import FooterW from "@/components/footer/FooterW";
+import Header from "@/components/header/HeaderW";
 
 export default function MainPage() {
   return (
@@ -8,7 +9,7 @@ export default function MainPage() {
         <Header />
       </div>
       <div>
-        <Footer />
+        <FooterM />
       </div>
     </div>
   );

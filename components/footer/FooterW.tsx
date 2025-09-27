@@ -1,8 +1,8 @@
 import Link from "next/link";
-import styles from "./Footer.module.scss";
+import styles from "./FooterW.module.scss";
 import Chat from "@/assets/icons/Chat";
 
-export default function Footer() {
+export default function FooterW() {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
