@@ -5,8 +5,11 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import cn from "classnames/bind";
 import styles from "./Swiper.module.scss";
 import Image from "next/image";
+
+const cx = cn.bind(styles);
 
 interface SwiperComponentProps {
   slides: {
@@ -31,7 +34,7 @@ const SwiperComponent = ({
   loop = true,
 }: SwiperComponentProps) => {
   return (
-    <div className={styles.swiperContainer}>
+    <div className={cx('swiperContainer')}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={spaceBetween}
@@ -42,18 +45,18 @@ const SwiperComponent = ({
           autoplay ? { delay: 3000, disableOnInteraction: false } : false
         }
         loop={loop}
-        className={styles.swiper}
+        className={cx('swiper')}
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className={styles.slide}>
-            <div className={styles.slideContent}>
+          <SwiperSlide key={slide.id} className={cx('slide')}>
+            <div className={cx('slideContent')}>
               <Image
                 fill
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
                 style={{ objectFit: 'cover' }}
               />
-              <h3 className={styles.title}>자세히 보기</h3>
+              <h3 className={cx('title')}>자세히 보기</h3>
             </div>
           </SwiperSlide>
         ))}

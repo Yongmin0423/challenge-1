@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import { categories } from "../allCategory/AllCategory";
+import cn from "classnames/bind";
 import styles from "./DoubleTabs.module.scss";
 import AdCard from "../adCard/AdCard";
+
+const cx = cn.bind(styles);
 
 export default function DoubleTabs() {
   const [mainCategory, setMainCategory] = useState(categories[0].title);
@@ -24,17 +27,15 @@ export default function DoubleTabs() {
   const currentCategory = categories.find((cat) => cat.title === mainCategory);
 
   return (
-    <div className={styles.container}>
+    <div className={cx('container')}>
       {/* 1차 탭 */}
-      <div className={styles.mainTabSection}>
-        <div className={styles.tabContainer}>
+      <div className={cx('mainTabSection')}>
+        <div className={cx('tabContainer')}>
           {categories.map((category) => (
-            <div className={styles.tabItem} key={category.title}>
+            <div className={cx('tabItem')} key={category.title}>
               <button
                 onClick={() => handleMainCategoryChange(category.title)}
-                className={`${styles.mainTabButton} ${
-                  mainCategory === category.title ? styles.active : ""
-                }`}
+                className={cx('mainTabButton', { active: mainCategory === category.title })}
               ></button>
               <p>{category.title}</p>
             </div>
@@ -43,24 +44,23 @@ export default function DoubleTabs() {
       </div>
 
       {/* 2차 탭 */}
-      <div>
-        <div className={styles.tabContainer}>
+      <div className={cx('subTabSection')}>
+        <div className={cx('tabContainer')}>
           {currentCategory?.items.map((item) => (
             <div
               key={item}
               onClick={() => handleSubCategoryChange(item)}
-              className={`${styles.subTabButton} ${
-                subCategory === item ? styles.active : ""
-              }`}
+              className={cx('subTabButton', { active: subCategory === item })}
             >
               {item}
             </div>
           ))}
         </div>
+        <div className={cx('separator')}></div>
       </div>
 
       {/* 현재 선택된 상태 표시 */}
-      <div className={styles.selectedStatus}>
+      <div className={cx('selectedStatus')}>
         <strong>
           <AdCard />
         </strong>

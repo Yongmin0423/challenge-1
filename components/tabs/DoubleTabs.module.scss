@@ -1,5 +1,9 @@
 .container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
 }
 
 .mainTabSection {
@@ -10,6 +14,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  overflow: auto;
 }
 
 .tabItem {
@@ -43,6 +48,18 @@
   }
 }
 
+.subTabSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.separator {
+  width: 100dvw;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
 .subTabButton {
   padding: 7px 16px;
   color: black;
@@ -57,10 +74,4 @@
   &.active {
     border-bottom: 2px solid black;
   }
-}
-
-.selectedStatus {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
 }

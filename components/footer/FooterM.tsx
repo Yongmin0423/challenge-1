@@ -1,11 +1,14 @@
 import Chat from "@/assets/icons/Chat";
+import cn from "classnames/bind";
 import styles from "./FooterM.module.scss";
 import Link from "next/link";
 
+const cx = cn.bind(styles);
+
 export default function FooterM() {
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
+    <div className={cx('container')}>
+      <div className={cx('top')}>
         <div>
           <Chat />
         </div>
@@ -20,8 +23,8 @@ export default function FooterM() {
           <Link href="">고객센터 032-710-1271</Link>
         </div>
       </div>
-      <div className={styles.separator}></div>
-      <div className={styles.bottom}>
+      <div className={cx('separator')}></div>
+      <div className={cx('bottom')}>
         <p>
           주소 : 인천광역시 서구 탁옥로51번길 11, 505호 | 대표자 : 김상헌 |
           대표번호 : 032-710-1271 | 이메일 : brandesign123@ naver.com

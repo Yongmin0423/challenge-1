@@ -6,9 +6,13 @@ import Header from "@/components/header/HeaderW";
 import SwiperComponent from "@/components/swiper/Swiper";
 import Ticket from "@/components/ticket/Ticket";
 import DoubleTabs from "@/components/tabs/DoubleTabs";
+import cn from "classnames/bind";
 import styles from "./MainPage.module.scss";
+
+const cx = cn.bind(styles);
 import AdBanner from "@/assets/images/AD.png";
 import Image from "next/image";
+import ProductCard from "@/components/productCard/ProductCard";
 
 const slides = [
   {
@@ -57,12 +61,12 @@ export default function MainPage() {
       <main>
         <SwiperComponent slides={slides} />
 
-        <div className={styles.tickets}>
+        <div className={cx('tickets')}>
           {examples.map((example) => (
             <Ticket key={example.id} data={example} />
           ))}
         </div>
-        <div className={styles.tabs}>
+        <div className={cx('tabs')}>
           <DoubleTabs />
         </div>
         <div>
@@ -71,6 +75,10 @@ export default function MainPage() {
 
         <div>
           <h3>가장 많이 구매하시는 상품이에요!</h3>
+          <ProductCard />
+        </div>
+        <div>
+          <SwiperComponent slides={slides} />
         </div>
       </main>
 
