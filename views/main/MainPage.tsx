@@ -13,6 +13,7 @@ const cx = cn.bind(styles);
 import AdBanner from "@/assets/images/AD.png";
 import Image from "next/image";
 import ProductCard from "@/components/productCard/ProductCard";
+import HeaderM from "@/components/header/HeaderM";
 
 const slides = [
   {
@@ -89,6 +90,7 @@ export default function MainPage() {
     <div>
       <nav>
         <Header />
+        <HeaderM />
       </nav>
 
       <main>
@@ -110,13 +112,24 @@ export default function MainPage() {
         <div className={cx("famous")}>
           <h3>가장 많이 구매하시는 상품이에요!</h3>
           <div className={cx("item-images")}>
-            {bestSellingProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                image={product.image}
-                title={product.title}
-              />
-            ))}
+            <div className={cx("web-items")}>
+              {bestSellingProducts.slice(0, 5).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.image}
+                  title={product.title}
+                />
+              ))}
+            </div>
+            <div className={cx("mobile-items")}>
+              {bestSellingProducts.slice(0, 4).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  image={product.image}
+                  title={product.title}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -125,9 +138,10 @@ export default function MainPage() {
         </div>
       </main>
 
-      <div>
+      <footer>
         <FooterW />
-      </div>
+        <FooterM />
+      </footer>
     </div>
   );
 }

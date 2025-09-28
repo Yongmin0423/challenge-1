@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   padding: 32px 48px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .top {
