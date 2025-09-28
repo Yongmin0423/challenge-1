@@ -51,6 +51,39 @@ const examples = [
   },
 ];
 
+const bestSellingProducts = [
+  {
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
+    title: "Nike Air Max 270",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80",
+    title: "Apple iPhone 15 Pro",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
+    title: "삼성 갤럭시 워치",
+  },
+  {
+    id: 4,
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+    title: "소니 무선 헤드폰",
+  },
+  {
+    id: 5,
+    image:
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80",
+    title: "맥북 프로 16인치",
+  },
+];
+
 export default function MainPage() {
   return (
     <div>
@@ -74,10 +107,19 @@ export default function MainPage() {
           <Image fill src={AdBanner} alt="광고 이미지" />
         </div>
 
-        <div>
+        <div className={cx("famous")}>
           <h3>가장 많이 구매하시는 상품이에요!</h3>
-          <ProductCard />
+          <div className={cx("item-images")}>
+            {bestSellingProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                image={product.image}
+                title={product.title}
+              />
+            ))}
+          </div>
         </div>
+
         <div>
           <SwiperComponent slides={slides} />
         </div>
