@@ -61,16 +61,17 @@ export default function MainPage() {
       <main>
         <SwiperComponent slides={slides} />
 
-        <div className={cx('tickets')}>
+        <div className={cx("tickets")}>
           {examples.map((example) => (
             <Ticket key={example.id} data={example} />
           ))}
         </div>
-        <div className={cx('tabs')}>
+        <div className={cx("tabs")}>
           <DoubleTabs />
         </div>
-        <div>
-          <Image width={1440} height={300} src={AdBanner} alt="광고 이미지" />
+
+        <div className={cx("middle-image")}>
+          <Image fill src={AdBanner} alt="광고 이미지" />
         </div>
 
         <div>

@@ -9,3 +9,10 @@
   display: flex;
   justify-content: center;
 }
+
+.middle-image {
+  position: relative;
+  width: 100dvw;
+  height: 300px; // 적절한 높이 설정
+  margin: 72px 0px;
+}
