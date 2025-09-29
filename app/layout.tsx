@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import HeaderW from "@/components/header/HeaderW";
+import HeaderM from "@/components/header/HeaderM";
+import FooterW from "@/components/footer/FooterW";
+import FooterM from "@/components/footer/FooterM";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +17,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <nav>
+          <HeaderW />
+          <HeaderM />
+        </nav>
+
+        <main>
+          {children}
+        </main>
+
+        <footer>
+          <FooterW />
+          <FooterM />
+        </footer>
+      </body>
     </html>
   );
 }
