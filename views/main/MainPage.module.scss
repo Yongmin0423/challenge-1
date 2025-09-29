@@ -1,0 +1,36 @@
+.tickets {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 64px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.middle-image {
+  position: relative;
+  width: 100dvw;
+  height: 300px; // 적절한 높이 설정
+  margin: 72px 0px;
+}
+
+.famous {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  h3 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  padding-bottom: 72px;
+}
+
+.item-images {
+  display: flex;
+  gap: 24px;
+}

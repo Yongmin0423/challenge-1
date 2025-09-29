@@ -1,8 +1,11 @@
 import Category from "./Category";
+import cn from "classnames/bind";
 import styles from "./AllCategory.module.scss";
 import ChevronRight from "@/assets/icons/ChevronRight";
 
-const categories = [
+const cx = cn.bind(styles);
+
+export const categories = [
   {
     title: "현수막",
     items: [
@@ -54,13 +57,13 @@ const categories = [
 
 export default function AllCategory() {
   return (
-    <div className={styles.container}>
-      <div className={styles["zet-production"]}>
+    <div className={cx('container')}>
+      <div className={cx('zet-production')}>
         <div>
           <p>제트상품</p>
           <p>~11시 이전</p>
         </div>
-        <div className={styles.icon}>
+        <div className={cx('icon')}>
           <ChevronRight />
         </div>
       </div>

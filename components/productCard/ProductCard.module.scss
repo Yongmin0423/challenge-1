@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210px;
+}
+
+.image {
+  position: relative;
+  height: 210px;
+  aspect-ratio: 1/1;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 16px 18px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
