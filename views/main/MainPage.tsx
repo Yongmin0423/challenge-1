@@ -5,7 +5,7 @@ import FooterW from "@/components/footer/FooterW";
 import Header from "@/components/header/HeaderW";
 import SwiperComponent from "@/components/swiper/Swiper";
 import Ticket from "@/components/ticket/Ticket";
-import DoubleTabs from "@/components/tabs/DoubleTabs";
+import DoubleTabs from "@/components/doubleTabs/DoubleTabs";
 import cn from "classnames/bind";
 import styles from "./MainPage.module.scss";
 
