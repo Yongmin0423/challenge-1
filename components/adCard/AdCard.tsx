@@ -1,5 +1,6 @@
 import Chat from "@/assets/icons/Chat";
 import Image from "next/image";
+import Link from "next/link";
 import cn from "classnames/bind";
 import styles from "./AdCard.module.scss";
 import Telephone from "@/assets/icons/Telephone";
@@ -11,6 +12,7 @@ interface AdCardProps {
   title: string;
   description: string;
   price: string;
+  productId?: string;
 }
 
 export default function AdCard({
@@ -18,6 +20,7 @@ export default function AdCard({
   title,
   description,
   price,
+  productId,
 }: AdCardProps) {
   return (
     <div className={cx("container")}>
@@ -31,7 +34,13 @@ export default function AdCard({
             <p>{description}</p>
           </div>
           <h4>{price}</h4>
-          <button>주문하러 가기</button>
+          {productId ? (
+            <Link href={`/${productId}`}>
+              <button>주문하러 가기</button>
+            </Link>
+          ) : (
+            <button>주문하러 가기</button>
+          )}
         </div>
         <div className={cx("bottom")}>
           <div className={cx("bottom-content")}>
