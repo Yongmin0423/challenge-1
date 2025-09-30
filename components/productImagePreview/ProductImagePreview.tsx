@@ -7,13 +7,13 @@ import styles from "./ProductImagePreview.module.scss";
 
 const cx = cn.bind(styles);
 
-interface ProductImageGalleryProps {
+interface ProductImagePreviewProps {
   images: string[];
 }
 
-export default function ProductImageGallery({
+export default function ProductImagePreview({
   images,
-}: ProductImageGalleryProps) {
+}: ProductImagePreviewProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (

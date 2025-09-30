@@ -1,9 +1,9 @@
-import Input from "@/components/input/Input";
-import Select from "@/components/select/Select";
-import ProductImageGallery from "@/components/productImagePreview/ProductImagePreview";
 import { Product } from "@/data/products";
 import cn from "classnames/bind";
 import styles from "./DetailPage.module.scss";
+import ProductImagePreview from "@/components/productImagePreview/ProductImagePreview";
+import OrderSection from "@/components/orderSection/OrderSection";
+import ProductList from "@/components/productList/ProductList";
 
 const cx = cn.bind(styles);
 
@@ -28,53 +28,18 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
       </div>
       <div className={cx("product-info")}>
         <div className={cx("image-section")}>
-          <ProductImageGallery images={productImages} />
+          <ProductImagePreview images={productImages} />
         </div>
         <div className={cx("info-section")}>
           <div className={cx("content")}>
             <h1 className={cx("name")}>{product.title}</h1>
             <p className={cx("description")}>{product.description}</p>
           </div>
-          <div className={cx("order-form")}>
-            <form>
-              <Input
-                label="제작물 제목"
-                placeholder="제작물 제목을 입력해주세요."
-              />
-              <Select
-                label="수량"
-                options={[
-                  { value: "1", label: "1개" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-              <Select
-                label="후가공"
-                options={[
-                  { value: "둥근목+끈마감", label: "1개" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-              <Select
-                label="추가 물품"
-                options={[
-                  { value: "둥근목+끈마감", label: "로프 6cm 추가" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-            </form>
-          </div>
-          <div className={cx("button")}>
-            <button>디자인 파일 업로드</button>
-          </div>
-          <div></div>
+          <OrderSection product={product} />
         </div>
+      </div>
+      <div>
+        <ProductList title="환경을 보호하는 친환경 상품" products={[]} />
       </div>
     </div>
   );

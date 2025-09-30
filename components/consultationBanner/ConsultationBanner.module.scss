@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   background-color: #f6f8fb;
   padding: 16px;
@@ -51,7 +52,7 @@
   cursor: pointer;
 
   p {
-    font-weight: 700;
+    font-weight: 400;
     font-size: 14px;
     color: #000;
     margin: 0;
