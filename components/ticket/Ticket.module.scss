@@ -1,10 +1,10 @@
 .container {
   display: flex;
   justify-content: center;
-  width: 344px; /*고정하면 안 될 거 같음*/
 }
 
 .image {
+  aspect-ratio: 1/1;
   width: 102px;
   height: 102px;
   position: relative;
@@ -22,5 +22,28 @@
     font-size: 14px;
     line-height: 24px;
     color: #505254;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .content {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
 }

@@ -216,6 +216,26 @@ const adCardData: Record<string, { image: string; title: string; description: st
     price: "250,000원~"
   },
 
+  // 친환경 카테고리
+  "Re-pet 현수막": {
+    image: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=500",
+    title: "Re-pet 현수막",
+    description: "재활용 소재로 제작하는 친환경 현수막입니다.",
+    price: "20,000원~"
+  },
+  "Re-pet X배너": {
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500",
+    title: "Re-pet X배너",
+    description: "친환경 재활용 소재로 제작한 X배너입니다.",
+    price: "40,000원~"
+  },
+  "재생용지전단": {
+    image: "https://images.unsplash.com/photo-1518674660708-0e2c0473e68e?w=500",
+    title: "재생용지전단",
+    description: "재생용지로 제작하는 친환경 전단지입니다.",
+    price: "4,500원~"
+  },
+
   // 기타 카테고리들
   "준비중": {
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
@@ -253,6 +273,12 @@ export default function DoubleTabs() {
               <button
                 onClick={() => handleMainCategoryChange(category.title)}
                 className={cx('mainTabButton', { active: mainCategory === category.title })}
+                style={{
+                  backgroundImage: `url(${category.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }}
               ></button>
               <p>{category.title}</p>
             </div>

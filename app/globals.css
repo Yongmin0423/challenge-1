@@ -107,6 +107,7 @@ section {
 }
 body {
   line-height: 1;
+  margin: 0;
 }
 ol,
 ul {
@@ -131,4 +132,11 @@ table {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Box sizing border box for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

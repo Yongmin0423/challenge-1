@@ -13,15 +13,16 @@ interface AdCardProps {
   price: string;
 }
 
-export default function AdCard({ image, title, description, price }: AdCardProps) {
+export default function AdCard({
+  image,
+  title,
+  description,
+  price,
+}: AdCardProps) {
   return (
     <div className={cx("container")}>
       <div className={cx("image")}>
-        <Image
-          fill
-          src={image}
-          alt={title}
-        />
+        <Image fill src={image} alt={title} />
       </div>
       <div className={cx("content")}>
         <div className={cx("top")}>
@@ -37,8 +38,10 @@ export default function AdCard({ image, title, description, price }: AdCardProps
             <h3>
               <Telephone /> 디자인 작업이 필요하신가요?
             </h3>
-            <p>제트디자인 디자이너가 맞춤형 디자인을 제작해 드려요.</p>
-            <p>상담 후 상품명을 제작해 보세요.</p>
+            <div>
+              <p>제트디자인 디자이너가 맞춤형 디자인을 제작해 드려요.</p>
+              <p>상담 후 상품명을 제작해 보세요.</p>
+            </div>
           </div>
           <button className={cx("bottom-button")}>
             <Chat />
