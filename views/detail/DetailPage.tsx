@@ -1,6 +1,6 @@
 import Input from "@/components/input/Input";
 import Select from "@/components/select/Select";
-import Image from "next/image";
+import ProductImageGallery from "@/components/productImagePreview/ProductImagePreview";
 import { Product } from "@/data/products";
 import cn from "classnames/bind";
 import styles from "./DetailPage.module.scss";
@@ -13,6 +13,14 @@ interface DetailPageProps {
 }
 
 export default function DetailPage({ product, productId }: DetailPageProps) {
+  // 임시로 같은 이미지 4개를 배열로 생성 (나중에 Product 타입에 images[] 추가 예정)
+  const productImages = [
+    product.image,
+    product.image,
+    product.image,
+    product.image,
+  ];
+
   return (
     <div className={cx("container")}>
       <div className={cx("title")}>
@@ -20,12 +28,7 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
       </div>
       <div className={cx("product-info")}>
         <div className={cx("image-section")}>
-          <Image
-            src={product.image}
-            alt={product.title}
-            fill
-            className={cx("product-image")}
-          />
+          <ProductImageGallery images={productImages} />
         </div>
         <div className={cx("info-section")}>
           <div className={cx("content")}>
@@ -67,7 +70,10 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
               />
             </form>
           </div>
-          <button>디자인 파일 업로드</button>
+          <div className={cx("button")}>
+            <button>디자인 파일 업로드</button>
+          </div>
+          <div></div>
         </div>
       </div>
     </div>
