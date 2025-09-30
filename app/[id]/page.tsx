@@ -8,8 +8,8 @@ interface PageProps {
   };
 }
 
-export default function ProductDetailPage({ params }: PageProps) {
-  const productId = params.id;
+export default async function ProductDetailPage({ params }: PageProps) {
+  const { id: productId } = await params;
   const product = getProductById(productId);
 
   if (!product) {

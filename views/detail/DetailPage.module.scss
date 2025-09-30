@@ -1,13 +1,21 @@
 .container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 180px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 32px;
+  padding: 40px 0px;
+  text-align: center;
 }
 
 .product-info {
   display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -16,7 +24,9 @@
 }
 
 .image-section {
-  flex: 1;
+  position: relative;
+  width: 50%;
+  aspect-ratio: 1/1;
 }
 
 .product-image {
@@ -26,20 +36,25 @@
 }
 
 .info-section {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 24px;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-  color: #333;
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .description {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 20px;
   line-height: 1.6;
 }
 
@@ -50,19 +65,14 @@
 }
 
 .order-form {
-  border-top: 1px solid #eee;
-  padding-top: 40px;
-
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 20px;
     color: #333;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
+    gap: 16px;
   }
 }

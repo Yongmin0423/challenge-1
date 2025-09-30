@@ -1,9 +1,8 @@
-import Chat from "@/assets/icons/Chat";
 import Image from "next/image";
 import Link from "next/link";
 import cn from "classnames/bind";
 import styles from "./AdCard.module.scss";
-import Telephone from "@/assets/icons/Telephone";
+import ConsultationBanner from "@/components/consultationBanner/ConsultationBanner";
 
 const cx = cn.bind(styles);
 
@@ -13,6 +12,7 @@ interface AdCardProps {
   description: string;
   price: string;
   productId?: string;
+  available?: boolean; // 주문 가능 여부
 }
 
 export default function AdCard({
@@ -21,6 +21,7 @@ export default function AdCard({
   description,
   price,
   productId,
+  available = true, // 기본값은 true (주문 가능)
 }: AdCardProps) {
   return (
     <div className={cx("container")}>
@@ -34,29 +35,17 @@ export default function AdCard({
             <p>{description}</p>
           </div>
           <h4>{price}</h4>
-          {productId ? (
+          {productId && available ? (
             <Link href={`/${productId}`}>
               <button>주문하러 가기</button>
             </Link>
-          ) : (
+          ) : available ? (
             <button>주문하러 가기</button>
+          ) : (
+            <button disabled>준비중</button>
           )}
         </div>
-        <div className={cx("bottom")}>
-          <div className={cx("bottom-content")}>
-            <h3>
-              <Telephone /> 디자인 작업이 필요하신가요?
-            </h3>
-            <div>
-              <p>제트디자인 디자이너가 맞춤형 디자인을 제작해 드려요.</p>
-              <p>상담 후 상품명을 제작해 보세요.</p>
-            </div>
-          </div>
-          <button className={cx("bottom-button")}>
-            <Chat />
-            <p>디자인 상담</p>
-          </button>
-        </div>
+        <ConsultationBanner />
       </div>
     </div>
   );

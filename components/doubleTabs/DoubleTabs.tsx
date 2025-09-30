@@ -86,6 +86,7 @@ export default function DoubleTabs() {
               adCardData[subCategory]?.price || adCardData["수성현수막"].price
             }
             productId={productNameToId[subCategory] || "misc-01"}
+            available={subCategory !== "준비중"} // "준비중"인 경우 주문 불가
           />
         </strong>
       </div>
