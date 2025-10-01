@@ -1,9 +1,10 @@
-import Input from "@/components/input/Input";
-import Select from "@/components/select/Select";
-import Image from "next/image";
-import { Product } from "@/data/products";
+import { Product, getRandomProductsFromSameCategory } from "@/data/products";
+import { getRecommendedTitle } from "@/data/productDetails";
 import cn from "classnames/bind";
 import styles from "./DetailPage.module.scss";
+import ProductImagePreview from "@/components/productImagePreview/ProductImagePreview";
+import OrderSection from "@/components/orderSection/OrderSection";
+import ProductList from "@/components/productList/ProductList";
 
 const cx = cn.bind(styles);
 
@@ -13,6 +14,26 @@ interface DetailPageProps {
 }
 
 export default function DetailPage({ product, productId }: DetailPageProps) {
+  // 임시로 같은 이미지 4개를 배열로 생성 (나중에 Product 타입에 images[] 추가 예정)
+  const productImages = [
+    product.image,
+    product.image,
+    product.image,
+    product.image,
+  ];
+
+  // 같은 카테고리 상품 랜덤으로 가져오기
+  const recommendedProducts = getRandomProductsFromSameCategory(
+    product.id,
+    5
+  ).map((p, index) => ({
+    id: index,
+    image: p.image,
+    title: p.title,
+    description: p.description,
+    price: p.price,
+  }));
+
   return (
     <div className={cx("container")}>
       <div className={cx("title")}>
@@ -20,56 +41,26 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
       </div>
       <div className={cx("product-info")}>
         <div className={cx("image-section")}>
-          <Image
-            src={product.image}
-            alt={product.title}
-            fill
-            className={cx("product-image")}
-          />
+          <ProductImagePreview images={productImages} />
         </div>
         <div className={cx("info-section")}>
           <div className={cx("content")}>
             <h1 className={cx("name")}>{product.title}</h1>
             <p className={cx("description")}>{product.description}</p>
           </div>
-          <div className={cx("order-form")}>
-            <form>
-              <Input
-                label="제작물 제목"
-                placeholder="제작물 제목을 입력해주세요."
-              />
-              <Select
-                label="수량"
-                options={[
-                  { value: "1", label: "1개" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-              <Select
-                label="후가공"
-                options={[
-                  { value: "둥근목+끈마감", label: "1개" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-              <Select
-                label="추가 물품"
-                options={[
-                  { value: "둥근목+끈마감", label: "로프 6cm 추가" },
-                  { value: "10", label: "10개" },
-                  { value: "50", label: "50개" },
-                  { value: "100", label: "100개" },
-                ]}
-              />
-            </form>
-          </div>
-          <button>디자인 파일 업로드</button>
+          <OrderSection product={product} />
         </div>
       </div>
+      {recommendedProducts.length > 0 && (
+        <div>
+          <ProductList
+            title={getRecommendedTitle(product.id)}
+            products={recommendedProducts}
+            mobileMaxItems={2}
+            align="left"
+          />
+        </div>
+      )}
     </div>
   );
 }

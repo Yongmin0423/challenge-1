@@ -1,0 +1,18 @@
+.pageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  padding: 0 180px;
+}
+
+.content {
+  width: 100%;
+  max-width: 1080px;
+}

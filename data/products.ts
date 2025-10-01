@@ -1,9 +1,23 @@
+export interface ProductOption {
+  label: string;
+  items: {
+    name: string;
+    price: number;
+  }[];
+}
+
 export interface Product {
   id: string;
   image: string;
   title: string;
   description: string;
   price: string;
+  basePrice?: number;
+  quantities?: {
+    value: number;
+    label: string;
+  }[];
+  options?: ProductOption[];
 }
 
 // 상품명을 ID로 변환하는 매핑
@@ -55,6 +69,33 @@ export const adCardData: Record<string, Product> = {
     title: "수성현수막",
     description: "친환경 수성잉크로 제작하는 고품질 현수막입니다.",
     price: "15,000원~",
+    basePrice: 10000,
+    quantities: [
+      { value: 1, label: "1개" },
+      { value: 10, label: "10개" },
+      { value: 50, label: "50개" },
+      { value: 100, label: "100개" },
+    ],
+    options: [
+      {
+        label: "후가공",
+        items: [
+          { name: "선택 안함", price: 0 },
+          { name: "둥근목+끈마감", price: 5000 },
+          { name: "코팅", price: 8000 },
+          { name: "라미네이팅", price: 12000 },
+        ],
+      },
+      {
+        label: "추가 물품",
+        items: [
+          { name: "선택 안함", price: 0 },
+          { name: "로프 6cm 추가", price: 3000 },
+          { name: "스탠드", price: 5000 },
+          { name: "액자", price: 7000 },
+        ],
+      },
+    ],
   },
   솔벤현수막: {
     id: "banner-02",
@@ -323,7 +364,9 @@ export const adCardData: Record<string, Product> = {
 
 export function getProductById(id: string): Product | undefined {
   // ID로 직접 조회
-  const product = Object.values(adCardData).find(product => product.id === id);
+  const product = Object.values(adCardData).find(
+    (product) => product.id === id
+  );
   return product;
 }
 
@@ -333,4 +376,34 @@ export function getProductByName(name: string): Product | undefined {
 
 export function getAllProducts(): Record<string, Product> {
   return adCardData;
+}
+
+export function getProductsByIds(ids: string[]): Product[] {
+  return ids
+    .map((id) => Object.values(adCardData).find((product) => product.id === id))
+    .filter((product): product is Product => product !== undefined);
+}
+
+// ID에서 카테고리 prefix 추출 (예: "banner-01" -> "banner")
+function getCategoryPrefix(productId: string): string {
+  return productId.split('-')[0];
+}
+
+// 같은 카테고리의 다른 상품들을 랜덤으로 가져오기
+export function getRandomProductsFromSameCategory(
+  currentProductId: string,
+  count: number = 4
+): Product[] {
+  const categoryPrefix = getCategoryPrefix(currentProductId);
+
+  // 같은 카테고리의 모든 상품 찾기 (현재 상품 제외)
+  const sameCategory = Object.values(adCardData).filter(
+    product => getCategoryPrefix(product.id) === categoryPrefix && product.id !== currentProductId
+  );
+
+  // 랜덤 셔플
+  const shuffled = sameCategory.sort(() => Math.random() - 0.5);
+
+  // count 개수만큼 반환
+  return shuffled.slice(0, count);
 }
