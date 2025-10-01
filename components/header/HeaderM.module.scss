@@ -13,6 +13,7 @@
   padding: 15px 18px;
   font-size: 18px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .back-btn {
@@ -78,12 +79,15 @@
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 
-  p {
+  a {
     margin: 0 0 12px 0;
     padding: 8px 0;
     color: #333;
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
 
     &:hover {
@@ -93,12 +97,26 @@
 }
 
 .menu-categories {
+  display: flex;
+  flex-direction: column;
+
+  .category-title {
+    padding: 12px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid #f0f0f0;
+    pointer-events: none;
+  }
+
   .category-item {
     padding: 12px 0;
     color: #333;
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
     border-bottom: 1px solid #f0f0f0;
+    display: block;
 
     &:hover {
       color: #007bff;
@@ -106,6 +124,22 @@
       margin: 0 -20px;
       padding-left: 20px;
       padding-right: 20px;
+    }
+
+    &.eco {
+      color: #00b54a;
+
+      &:hover {
+        color: #00b54a;
+      }
+    }
+
+    &.jetmall {
+      color: #fd914b;
+
+      &:hover {
+        color: #fd914b;
+      }
     }
 
     &:last-child {

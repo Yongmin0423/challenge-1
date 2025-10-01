@@ -9,6 +9,9 @@
 
     a {
       padding: 12px;
+      &:hover {
+        font-weight: 500;
+      }
     }
   }
 
@@ -28,6 +31,10 @@
     align-items: center;
     gap: 4px;
     color: #154686;
+    cursor: pointer;
+    &:hover {
+      font-weight: 500;
+    }
   }
   .header-bottom {
     padding: 8px 36px 36px 16px;
@@ -47,7 +54,8 @@
       }
 
       .category-dropdown {
-        width: 1440px;
+        width: calc(100vw - 96px);
+        max-width: 1440px;
         position: absolute;
         top: 150%;
         left: 0;

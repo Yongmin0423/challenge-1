@@ -10,9 +10,11 @@
 
 .image {
   position: relative;
-  height: 210px;
+  width: 100%;
   aspect-ratio: 1/1;
-  @media (max-width: 768px) {
+
+  @media (min-width: 769px) {
+    max-width: 210px;
   }
 }
 

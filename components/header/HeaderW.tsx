@@ -15,6 +15,10 @@ import AllCategory from "../allCategory/AllCategory";
 export default function Header() {
   const [showAllCategory, setShowAllCategory] = useState(false);
 
+  const handleCloseCategory = () => {
+    setShowAllCategory(false);
+  };
+
   return (
     <div className={cx("header")}>
       <div className={cx("header-top")}>
@@ -41,17 +45,17 @@ export default function Header() {
           </p>
           {showAllCategory && (
             <div className={cx("category-dropdown")}>
-              <AllCategory />
+              <AllCategory onLinkClick={handleCloseCategory} />
             </div>
           )}
         </div>
         <div className={cx("categories")}>
-          <Link href="">현수막</Link>
-          <Link href="">배너</Link>
-          <Link href="">실사출력</Link>
-          <Link href="">인쇄/판촉</Link>
-          <Link href="">간판</Link>
-          <Link href="">친환경</Link>
+          <Link href="/banner-01">현수막</Link>
+          <Link href="/display-01">배너</Link>
+          <Link href="/print-01">실사출력</Link>
+          <Link href="/promo-01">인쇄/판촉</Link>
+          <Link href="/sign-01">간판</Link>
+          <Link href="/eco-01">친환경</Link>
         </div>
       </div>
     </div>

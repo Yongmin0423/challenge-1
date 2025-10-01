@@ -7,6 +7,7 @@ import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { getProductById } from "@/data/products";
 import ArrowLeft from "@/assets/icons/ArrowLeft";
+import Link from "next/link";
 
 const cx = cn.bind(styles);
 
@@ -54,19 +55,24 @@ export default function HeaderM() {
       <div className={cx("side-menu", { open: isMenuOpen })}>
         <div className={cx("menu-content")}>
           <div className={cx("menu-top")}>
-            <p>Login</p>
-            <p>Join</p>
-            <p>Orders</p>
-            <p>Customer Service</p>
+            <Link href="/login" onClick={toggleMenu}>로그인</Link>
+            <Link href="/join" onClick={toggleMenu}>회원가입</Link>
+            <Link href="/orders" onClick={toggleMenu}>주문/배송</Link>
+            <Link href="/FAQ" onClick={toggleMenu}>고객센터</Link>
           </div>
           <div className={cx("menu-categories")}>
-            <div className={cx("category-item")}>All Categories</div>
-            <div className={cx("category-item")}>Banners</div>
-            <div className={cx("category-item")}>Printing</div>
-            <div className={cx("category-item")}>Digital Print</div>
-            <div className={cx("category-item")}>Print/Promotion</div>
-            <div className={cx("category-item")}>Signs</div>
-            <div className={cx("category-item")}>Eco-friendly</div>
+            <div className={cx("category-title")}>전체 카테고리</div>
+            <div className={cx("category-item")}>제트상품</div>
+            <Link href="/banner-01" className={cx("category-item")} onClick={toggleMenu}>현수막</Link>
+            <Link href="/print-01" className={cx("category-item")} onClick={toggleMenu}>실사출력</Link>
+            <Link href="/display-01" className={cx("category-item")} onClick={toggleMenu}>배너</Link>
+            <Link href="/card-01" className={cx("category-item")} onClick={toggleMenu}>명함</Link>
+            <Link href="/sticker-01" className={cx("category-item")} onClick={toggleMenu}>스티커</Link>
+            <Link href="/promo-01" className={cx("category-item")} onClick={toggleMenu}>인쇄/판촉</Link>
+            <Link href="/sign-01" className={cx("category-item")} onClick={toggleMenu}>간판</Link>
+            <Link href="/eco-01" className={cx("category-item", "eco")} onClick={toggleMenu}>친환경</Link>
+            <Link href="/misc-01" className={cx("category-item")} onClick={toggleMenu}>셀프디자인</Link>
+            <Link href="/misc-01" className={cx("category-item", "jetmall")} onClick={toggleMenu}>제트몰</Link>
           </div>
         </div>
       </div>
