@@ -1,19 +1,15 @@
 "use client";
 
-import FooterM from "@/components/footer/FooterM";
-import FooterW from "@/components/footer/FooterW";
-import Header from "@/components/header/HeaderW";
 import SwiperComponent from "@/components/swiper/Swiper";
 import Ticket from "@/components/ticket/Ticket";
-import DoubleTabs from "@/components/tabs/DoubleTabs";
+import DoubleTabs from "@/components/doubleTabs/DoubleTabs";
+import ProductList from "@/components/productList/ProductList";
 import cn from "classnames/bind";
 import styles from "./MainPage.module.scss";
 
 const cx = cn.bind(styles);
 import AdBanner from "@/assets/images/AD.png";
 import Image from "next/image";
-import ProductCard from "@/components/productCard/ProductCard";
-import HeaderM from "@/components/header/HeaderM";
 
 const slides = [
   {
@@ -88,60 +84,33 @@ const bestSellingProducts = [
 export default function MainPage() {
   return (
     <div>
-      <nav>
-        <Header />
-        <HeaderM />
-      </nav>
+      <SwiperComponent slides={slides} />
 
-      <main>
+      <div className={cx("tickets")}>
+        {examples.map((example) => (
+          <Ticket key={example.id} data={example} />
+        ))}
+      </div>
+      <div className={cx("tabs")}>
+        <DoubleTabs />
+      </div>
+
+      <div className={cx("middle-image")}>
+        <Image fill src={AdBanner} alt="광고 이미지" />
+      </div>
+
+      <div className={cx("famous")}>
+        <ProductList
+          title="가장 많이 구매하시는 상품이에요!"
+          products={bestSellingProducts}
+          maxItems={5}
+          mobileMaxItems={4}
+        />
+      </div>
+
+      <div>
         <SwiperComponent slides={slides} />
-
-        <div className={cx("tickets")}>
-          {examples.map((example) => (
-            <Ticket key={example.id} data={example} />
-          ))}
-        </div>
-        <div className={cx("tabs")}>
-          <DoubleTabs />
-        </div>
-
-        <div className={cx("middle-image")}>
-          <Image fill src={AdBanner} alt="광고 이미지" />
-        </div>
-
-        <div className={cx("famous")}>
-          <h3>가장 많이 구매하시는 상품이에요!</h3>
-          <div className={cx("item-images")}>
-            <div className={cx("web-items")}>
-              {bestSellingProducts.slice(0, 5).map((product) => (
-                <ProductCard
-                  key={product.id}
-                  image={product.image}
-                  title={product.title}
-                />
-              ))}
-            </div>
-            <div className={cx("mobile-items")}>
-              {bestSellingProducts.slice(0, 4).map((product) => (
-                <ProductCard
-                  key={product.id}
-                  image={product.image}
-                  title={product.title}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <SwiperComponent slides={slides} />
-        </div>
-      </main>
-
-      <footer>
-        <FooterW />
-        <FooterM />
-      </footer>
+      </div>
     </div>
   );
 }
