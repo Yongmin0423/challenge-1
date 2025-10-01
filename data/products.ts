@@ -386,11 +386,11 @@ export function getProductsByIds(ids: string[]): Product[] {
 
 // ID에서 카테고리 prefix 추출 (예: "banner-01" -> "banner")
 function getCategoryPrefix(productId: string): string {
-  return productId.split('-')[0];
+  return productId.split("-")[0];
 }
 
 // 같은 카테고리의 다른 상품들을 랜덤으로 가져오기
-export function getRandomProductsFromSameCategory(
+export function getProductsFromSameCategory(
   currentProductId: string,
   count: number = 4
 ): Product[] {
@@ -398,12 +398,10 @@ export function getRandomProductsFromSameCategory(
 
   // 같은 카테고리의 모든 상품 찾기 (현재 상품 제외)
   const sameCategory = Object.values(adCardData).filter(
-    product => getCategoryPrefix(product.id) === categoryPrefix && product.id !== currentProductId
+    (product) =>
+      getCategoryPrefix(product.id) === categoryPrefix &&
+      product.id !== currentProductId
   );
 
-  // 랜덤 셔플
-  const shuffled = sameCategory.sort(() => Math.random() - 0.5);
-
-  // count 개수만큼 반환
-  return shuffled.slice(0, count);
+  return sameCategory.slice(0, count);
 }

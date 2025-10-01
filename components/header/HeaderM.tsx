@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import cn from "classnames/bind";
 import styles from "./HeaderM.module.scss";
 import Hamberger from "@/assets/icons/Hamberger";
