@@ -1,10 +1,15 @@
 .order-section {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   h2 {
     font-size: 1.5rem;
     color: #333;
@@ -13,10 +18,13 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
   }
 }
 .upload-button {
+  input {
+    display: none;
+  }
   button {
     padding: 11px;
     width: 100%;
@@ -26,6 +34,29 @@
     color: #154686;
     font-weight: 400;
     font-size: 14px;
+    cursor: pointer;
+  }
+
+  .file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    span {
+      cursor: pointer;
+    }
+  }
+
+  .file-name {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .error-message {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 4px;
   }
 }
 

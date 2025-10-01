@@ -24,8 +24,8 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
 
   // 같은 카테고리 상품 랜덤으로 가져오기
   const recommendedProducts = getProductsFromSameCategory(product.id, 5).map(
-    (p, index) => ({
-      id: index,
+    (p) => ({
+      id: p.id,
       image: p.image,
       title: p.title,
       description: p.description,

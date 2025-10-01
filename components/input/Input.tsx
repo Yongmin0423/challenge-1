@@ -7,7 +7,7 @@ const cx = cn.bind(styles);
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  error?: FieldError;
+  error?: FieldError | { message?: string };
   placeholder?: string;
   helperText?: string;
   ref?: React.Ref<HTMLInputElement>;

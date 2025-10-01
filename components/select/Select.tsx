@@ -12,6 +12,7 @@ interface SelectContextValue {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   disabled?: boolean;
+  error?: { message?: string };
 }
 
 const SelectContext = createContext<SelectContextValue | null>(null);
@@ -32,6 +33,7 @@ interface SelectProps {
   onValueChange?: (value: string) => void;
   children: ReactNode;
   disabled?: boolean;
+  error?: { message?: string };
 }
 
 export function Select({
@@ -39,6 +41,7 @@ export function Select({
   onValueChange,
   children,
   disabled,
+  error,
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -50,9 +53,13 @@ export function Select({
         isOpen,
         setIsOpen,
         disabled,
+        error,
       }}
     >
-      <div style={{ position: "relative", width: "100%" }}>{children}</div>
+      <div style={{ position: "relative", width: "100%" }}>
+        {children}
+        {error && <span className={cx("errorMessage")}>{error.message}</span>}
+      </div>
     </SelectContext.Provider>
   );
 }
@@ -63,13 +70,13 @@ interface SelectTriggerProps {
 }
 
 export function SelectTrigger({ children }: SelectTriggerProps) {
-  const { isOpen, setIsOpen, disabled } = useSelect();
+  const { isOpen, setIsOpen, disabled, error } = useSelect();
 
   return (
     <button
       type="button"
       disabled={disabled}
-      className={cx("select")}
+      className={cx("select", { error: !!error })}
       onClick={() => !disabled && setIsOpen(!isOpen)}
     >
       {children}

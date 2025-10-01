@@ -17,7 +17,7 @@ export default function ConsultationBanner() {
           <p>상담 후 상품명을 제작해 보세요.</p>
         </div>
       </div>
-      <button className={cx("button")}>
+      <button type="button" className={cx("button")}>
         <Chat />
         <p>디자인 상담</p>
       </button>
