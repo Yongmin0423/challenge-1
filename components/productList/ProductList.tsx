@@ -5,7 +5,7 @@ import styles from "./ProductList.module.scss";
 const cx = cn.bind(styles);
 
 interface Product {
-  id: number;
+  id: string;
   image: string;
   title: string;
   description?: string;
@@ -53,6 +53,7 @@ export default function ProductList({
             {mobileProducts.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 image={product.image}
                 title={product.title}
                 description={product.description}
