@@ -4,15 +4,27 @@
   align-items: center;
   background-color: white;
   border-bottom: 1px solid #e5e5e5;
+  padding: 8px;
   position: relative;
   z-index: 1000;
 }
 
 .logo {
-  img {
-    height: 32px;
-    width: auto;
-  }
+  padding: 15px 18px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.back-btn {
+  background-color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .hamburger-btn {
