@@ -65,7 +65,7 @@ export const categories = [
   },
 ];
 
-export default function AllCategory() {
+export default function AllCategory({ onLinkClick }: { onLinkClick?: () => void }) {
   return (
     <div className={cx('container')}>
       <div className={cx('zet-production')}>
@@ -89,6 +89,7 @@ export default function AllCategory() {
               ? "#FD914B"
               : undefined
           }
+          onLinkClick={onLinkClick}
         />
       ))}
     </div>

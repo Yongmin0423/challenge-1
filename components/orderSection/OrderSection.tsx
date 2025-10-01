@@ -29,6 +29,9 @@ export default function OrderSection({ product }: OrderSectionProps) {
   const [optionSelections, setOptionSelections] = useState<
     Record<string, number>
   >({});
+  const [selectedOptionValues, setSelectedOptionValues] = useState<
+    Record<string, string>
+  >({});
 
   // 가격 포맷팅 함수
   const formatPrice = (price: number) => {
@@ -61,6 +64,10 @@ export default function OrderSection({ product }: OrderSectionProps) {
     setOptionSelections((prev) => ({
       ...prev,
       [optionLabel]: itemPrice,
+    }));
+    setSelectedOptionValues((prev) => ({
+      ...prev,
+      [optionLabel]: itemName,
     }));
   };
 
@@ -100,7 +107,7 @@ export default function OrderSection({ product }: OrderSectionProps) {
           {product.options?.map((option) => (
             <div key={option.label}>
               <Select
-                value=""
+                value={selectedOptionValues[option.label] || ""}
                 onValueChange={(value) => {
                   const item = option.items.find(
                     (i: { name: string; price: number }) => i.name === value

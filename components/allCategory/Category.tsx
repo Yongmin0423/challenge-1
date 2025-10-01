@@ -2,6 +2,8 @@ import ChevronRight from "@/assets/icons/ChevronRight";
 import cn from "classnames/bind";
 import styles from "./Category.module.scss";
 import Leaf from "@/assets/icons/Leaf";
+import Link from "next/link";
+import { productNameToId } from "@/data/products";
 
 const cx = cn.bind(styles);
 
@@ -9,10 +11,12 @@ export default function Category({
   title,
   items,
   titleColor,
+  onLinkClick,
 }: {
   title: string;
   items: string[];
   titleColor?: string;
+  onLinkClick?: () => void;
 }) {
   return (
     <div className={cx('container')}>
@@ -30,7 +34,19 @@ export default function Category({
       </div>
       <div className={cx('items')}>
         {items.length > 0 &&
-          items.map((item, index) => <p key={index}>{item}</p>)}
+          items.map((item, index) => {
+            const productId = productNameToId[item];
+            return (
+              <Link
+                key={index}
+                href={`/${productId || ''}`}
+                className={cx('item-link')}
+                onClick={onLinkClick}
+              >
+                {item}
+              </Link>
+            );
+          })}
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export default function ProductImagePreview({
       <div className={cx("main-image")}>
         <Image
           src={images[selectedIndex]}
-          alt={images[selectedIndex]}
+          alt={`제품 이미지 ${selectedIndex + 1}`}
           fill
           className={cx("image")}
         />

@@ -1,4 +1,4 @@
-import { Product, getRandomProductsFromSameCategory } from "@/data/products";
+import { Product, getProductsFromSameCategory } from "@/data/products";
 import { getRecommendedTitle } from "@/data/productDetails";
 import cn from "classnames/bind";
 import styles from "./DetailPage.module.scss";
@@ -23,16 +23,15 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
   ];
 
   // 같은 카테고리 상품 랜덤으로 가져오기
-  const recommendedProducts = getRandomProductsFromSameCategory(
-    product.id,
-    5
-  ).map((p, index) => ({
-    id: index,
-    image: p.image,
-    title: p.title,
-    description: p.description,
-    price: p.price,
-  }));
+  const recommendedProducts = getProductsFromSameCategory(product.id, 5).map(
+    (p, index) => ({
+      id: index,
+      image: p.image,
+      title: p.title,
+      description: p.description,
+      price: p.price,
+    })
+  );
 
   return (
     <div className={cx("container")}>
@@ -56,7 +55,7 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
           <ProductList
             title={getRecommendedTitle(product.id)}
             products={recommendedProducts}
-            mobileMaxItems={2}
+            mobileMaxItems={4}
             align="left"
           />
         </div>

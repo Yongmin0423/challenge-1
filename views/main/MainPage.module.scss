@@ -1,9 +1,17 @@
-
 .pageWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.consultation {
+  width: 100%;
+  margin-top: 32px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .fullWidth {
@@ -53,6 +61,10 @@
   width: 100%;
   height: 300px;
   margin: 72px 0px;
+  @media (max-width: 768px) {
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
 }
 
 .famous {

@@ -45,7 +45,9 @@ export default function AdCard({
             <button disabled>준비중</button>
           )}
         </div>
-        <ConsultationBanner />
+        <div className={cx("consultation")}>
+          <ConsultationBanner />
+        </div>
       </div>
     </div>
   );

@@ -7,8 +7,8 @@ const cx = cn.bind(styles);
 
 export default function FooterM() {
   return (
-    <div className={cx('container')}>
-      <div className={cx('top')}>
+    <div className={cx("container")}>
+      <div className={cx("top")}>
         <div>
           <Chat />
         </div>
@@ -20,11 +20,13 @@ export default function FooterM() {
         <div>
           <Link href="">대량문의</Link>
           <Link href="">제휴문의</Link>
-          <Link href="">고객센터 032-710-1271</Link>
+          <Link href="">
+            고객센터 <span>032-710-1271</span>
+          </Link>
         </div>
       </div>
-      <div className={cx('separator')}></div>
-      <div className={cx('bottom')}>
+      <div className={cx("separator")}></div>
+      <div className={cx("bottom")}>
         <p>
           주소 : 인천광역시 서구 탁옥로51번길 11, 505호 | 대표자 : 김상헌 |
           대표번호 : 032-710-1271 | 이메일 : brandesign123@ naver.com

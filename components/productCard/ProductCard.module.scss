@@ -10,10 +10,11 @@
 
 .image {
   position: relative;
-  height: 210px;
+  width: 100%;
   aspect-ratio: 1/1;
-  @media (max-width: 768px) {
-    height: 160px;
+
+  @media (min-width: 769px) {
+    max-width: 210px;
   }
 }
 
@@ -32,6 +33,7 @@
   @media (max-width: 768px) {
     font-size: 14px;
     line-height: 24px;
+    padding-bottom: 0px;
   }
 
   .left & {
@@ -55,8 +57,7 @@
   padding: 0 18px 16px;
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
-  color: #000;
+  color: #fd914b;
 
   .left & {
     padding-left: 0;
