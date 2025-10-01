@@ -16,30 +16,16 @@
     gap: 16px;
   }
 }
-
-.button {
-  width: 100%;
-  display: flex;
-  gap: 8px;
-
+.upload-button {
   button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border: none;
-    padding: 14px;
+    padding: 11px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #154686;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  button:first-child {
-    background-color: #9ec6e7;
-  }
-  button:last-child {
-    background-color: #154686;
+    color: #154686;
+    font-weight: 400;
+    font-size: 14px;
   }
 }
 
@@ -78,6 +64,32 @@
         font-weight: 700;
       }
     }
+  }
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  button:first-child {
+    background-color: #9ec6e7;
+  }
+  button:last-child {
+    background-color: #154686;
   }
 }
 

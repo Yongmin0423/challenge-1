@@ -24,7 +24,9 @@ export default function Header() {
         <Link href="/FAQ">고객센터</Link>
       </div>
       <div className={cx("header-middle")}>
-        <Image src={Logo} alt="로고이미지" />
+        <Link href="/">
+          <Image src={Logo} alt="로고이미지" />
+        </Link>
         <div>
           <p>
             <CartIcon />

@@ -25,62 +25,43 @@ interface OrderSectionProps {
 
 export default function OrderSection({ product }: OrderSectionProps) {
   // 선택값 state 관리
-  const [quantity, setQuantity] = useState("1");
-  const [selectedPostProcessing, setSelectedPostProcessing] = useState("");
-  const [selectedAdditionalItems, setSelectedAdditionalItems] = useState("");
-
-  // 가격 state 관리
-  const [productPrice, setProductPrice] = useState(10000);
-  const [postProcessingPrice, setPostProcessingPrice] = useState(0);
-  const [additionalItemsPrice, setAdditionalItemsPrice] = useState(0);
-
-  // 총 금액 계산
-  const totalPrice = productPrice + postProcessingPrice + additionalItemsPrice;
+  const [quantity, setQuantity] = useState<number | null>(null);
+  const [optionSelections, setOptionSelections] = useState<
+    Record<string, number>
+  >({});
 
   // 가격 포맷팅 함수
   const formatPrice = (price: number) => {
     return price.toLocaleString("ko-KR");
   };
 
-  // 라벨 매핑 객체
-  const quantityLabels: Record<string, string> = {
-    "1": "1개",
-    "10": "10개",
-    "50": "50개",
-    "100": "100개",
-  };
-
-  const postProcessingLabels: Record<string, string> = {
-    "0": "선택 안함",
-    "5000": "둥근목+끈마감 (5,000원)",
-    "8000": "코팅 (8,000원)",
-    "12000": "라미네이팅 (12,000원)",
-  };
-
-  const additionalItemsLabels: Record<string, string> = {
-    "0": "선택 안함",
-    "3000": "로프 6cm 추가 (3,000원)",
-    "5000": "스탠드 (5,000원)",
-    "7000": "액자 (7,000원)",
-  };
+  // 총 가격 계산
+  const productPrice =
+    quantity && product.basePrice ? product.basePrice * quantity : 0;
+  const optionsPrice = Object.values(optionSelections).reduce(
+    (sum, price) => sum + price,
+    0
+  );
+  const totalPrice = productPrice + optionsPrice;
 
   // 수량 변경 핸들러
   const handleQuantityChange = (value: string) => {
-    setQuantity(value);
-    // 기본 단가 10,000원 * 수량
-    setProductPrice(10000 * parseInt(value));
+    const selected = product.quantities?.find((q) => q.label === value);
+    if (selected) {
+      setQuantity(selected.value);
+    }
   };
 
-  // 후가공 변경 핸들러
-  const handlePostProcessingChange = (value: string) => {
-    setSelectedPostProcessing(value);
-    setPostProcessingPrice(parseInt(value));
-  };
-
-  // 추가 물품 변경 핸들러
-  const handleAdditionalItemsChange = (value: string) => {
-    setSelectedAdditionalItems(value);
-    setAdditionalItemsPrice(parseInt(value));
+  // 옵션 변경 핸들러
+  const handleOptionChange = (
+    optionLabel: string,
+    itemName: string,
+    itemPrice: number
+  ) => {
+    setOptionSelections((prev) => ({
+      ...prev,
+      [optionLabel]: itemPrice,
+    }));
   };
 
   return (
@@ -91,63 +72,62 @@ export default function OrderSection({ product }: OrderSectionProps) {
             label="제작물 제목"
             placeholder="제작물 제목을 입력해주세요."
           />
-          <div>
-            <Select value={quantity} onValueChange={handleQuantityChange}>
-              <SelectLabel htmlFor="quantity">수량</SelectLabel>
-              <SelectTrigger>
-                <SelectValue placeholder="수량을 선택하세요">
-                  {quantityLabels[quantity]}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">1개</SelectItem>
-                <SelectItem value="10">10개</SelectItem>
-                <SelectItem value="50">50개</SelectItem>
-                <SelectItem value="100">100개</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Select
-              value={selectedPostProcessing}
-              onValueChange={handlePostProcessingChange}
-            >
-              <SelectLabel htmlFor="postProcessing">후가공</SelectLabel>
-              <SelectTrigger>
-                <SelectValue placeholder="후가공을 선택하세요">
-                  {postProcessingLabels[selectedPostProcessing]}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0">선택 안함</SelectItem>
-                <SelectItem value="5000">둥근목+끈마감 (5,000원)</SelectItem>
-                <SelectItem value="8000">코팅 (8,000원)</SelectItem>
-                <SelectItem value="12000">라미네이팅 (12,000원)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Select
-              value={selectedAdditionalItems}
-              onValueChange={handleAdditionalItemsChange}
-            >
-              <SelectLabel htmlFor="additionalItems">추가 물품</SelectLabel>
-              <SelectTrigger>
-                <SelectValue placeholder="추가 물품을 선택하세요">
-                  {additionalItemsLabels[selectedAdditionalItems]}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0">선택 안함</SelectItem>
-                <SelectItem value="3000">로프 6cm 추가 (3,000원)</SelectItem>
-                <SelectItem value="5000">스탠드 (5,000원)</SelectItem>
-                <SelectItem value="7000">액자 (7,000원)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          {product.quantities && (
+            <div>
+              <Select
+                value={
+                  quantity
+                    ? product.quantities.find((q) => q.value === quantity)
+                        ?.label
+                    : ""
+                }
+                onValueChange={handleQuantityChange}
+              >
+                <SelectLabel htmlFor="quantity">수량</SelectLabel>
+                <SelectTrigger>
+                  <SelectValue placeholder="수량을 선택하세요" />
+                </SelectTrigger>
+                <SelectContent>
+                  {product.quantities.map((q) => (
+                    <SelectItem key={q.value} value={q.label}>
+                      {q.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+          {product.options?.map((option) => (
+            <div key={option.label}>
+              <Select
+                value=""
+                onValueChange={(value) => {
+                  const item = option.items.find(
+                    (i: { name: string; price: number }) => i.name === value
+                  );
+                  if (item) {
+                    handleOptionChange(option.label, item.name, item.price);
+                  }
+                }}
+              >
+                <SelectLabel htmlFor={option.label}>{option.label}</SelectLabel>
+                <SelectTrigger>
+                  <SelectValue placeholder={`${option.label}을 선택하세요`} />
+                </SelectTrigger>
+                <SelectContent>
+                  {option.items.map((item: { name: string; price: number }) => (
+                    <SelectItem key={item.name} value={item.name}>
+                      {item.name}
+                      {item.price > 0 && ` (${formatPrice(item.price)}원)`}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          ))}
         </form>
       </div>
-      <div className={cx("button")}>
+      <div className={cx("upload-button")}>
         <button>디자인 파일 업로드</button>
       </div>
       <div>
@@ -158,14 +138,15 @@ export default function OrderSection({ product }: OrderSectionProps) {
           <p>상품 금액</p>
           <p>{formatPrice(productPrice)}원</p>
         </div>
-        <div className={cx("item")}>
-          <p>후가공 금액</p>
-          <p>{formatPrice(postProcessingPrice)}원</p>
-        </div>
-        <div className={cx("item")}>
-          <p>추가 물품</p>
-          <p>{formatPrice(additionalItemsPrice)}원</p>
-        </div>
+        {product.options?.map((option) => {
+          const price = optionSelections[option.label] || 0;
+          return (
+            <div key={option.label} className={cx("item")}>
+              <p>{option.label} 금액</p>
+              <p>{formatPrice(price)}원</p>
+            </div>
+          );
+        })}
         <div className={cx("item")}>
           <p>총 금액</p>
           <div className={cx("total-price")}>

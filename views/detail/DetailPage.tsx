@@ -1,4 +1,5 @@
-import { Product } from "@/data/products";
+import { Product, getRandomProductsFromSameCategory } from "@/data/products";
+import { getRecommendedTitle } from "@/data/productDetails";
 import cn from "classnames/bind";
 import styles from "./DetailPage.module.scss";
 import ProductImagePreview from "@/components/productImagePreview/ProductImagePreview";
@@ -21,6 +22,18 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
     product.image,
   ];
 
+  // 같은 카테고리 상품 랜덤으로 가져오기
+  const recommendedProducts = getRandomProductsFromSameCategory(
+    product.id,
+    5
+  ).map((p, index) => ({
+    id: index,
+    image: p.image,
+    title: p.title,
+    description: p.description,
+    price: p.price,
+  }));
+
   return (
     <div className={cx("container")}>
       <div className={cx("title")}>
@@ -38,9 +51,16 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
           <OrderSection product={product} />
         </div>
       </div>
-      <div>
-        <ProductList title="환경을 보호하는 친환경 상품" products={[]} />
-      </div>
+      {recommendedProducts.length > 0 && (
+        <div>
+          <ProductList
+            title={getRecommendedTitle(product.id)}
+            products={recommendedProducts}
+            mobileMaxItems={2}
+            align="left"
+          />
+        </div>
+      )}
     </div>
   );
 }
