@@ -3,12 +3,10 @@
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
 }
-
-.mainTabSection {
-  margin-bottom: 20px;
-}
-
 .tabContainer {
   display: flex;
   justify-content: center;
@@ -31,7 +29,6 @@
   p {
     font-weight: 700;
     font-size: 14px;
-    line-height: 24px;
   }
 }
 

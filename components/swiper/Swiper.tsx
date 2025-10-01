@@ -34,7 +34,7 @@ const SwiperComponent = ({
   loop = true,
 }: SwiperComponentProps) => {
   return (
-    <div className={cx('swiperContainer')}>
+    <div className={cx("swiperContainer")}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={spaceBetween}
@@ -45,18 +45,17 @@ const SwiperComponent = ({
           autoplay ? { delay: 3000, disableOnInteraction: false } : false
         }
         loop={loop}
-        className={cx('swiper')}
+        className={cx("swiper")}
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className={cx('slide')}>
-            <div className={cx('slideContent')}>
+          <SwiperSlide key={slide.id} className={cx("slide")}>
+            <div className={cx("slideContent")}>
               <Image
                 fill
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
               />
-              <h3 className={cx('title')}>자세히 보기</h3>
             </div>
           </SwiperSlide>
         ))}

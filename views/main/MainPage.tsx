@@ -10,6 +10,7 @@ import styles from "./MainPage.module.scss";
 const cx = cn.bind(styles);
 import AdBanner from "@/assets/images/AD.png";
 import Image from "next/image";
+import ConsultationBanner from "@/components/consultationBanner/ConsultationBanner";
 
 const slides = [
   {
@@ -99,6 +100,10 @@ export default function MainPage() {
             <DoubleTabs />
           </div>
         </div>
+      </div>
+
+      <div className={cx("consultation")}>
+        <ConsultationBanner />
       </div>
 
       <div className={cx("fullWidth")}>
