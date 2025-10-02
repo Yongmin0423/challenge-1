@@ -30,7 +30,6 @@ export default function RootLayout({
 
         <footer>
           <FooterW />
-          <FooterM />
         </footer>
       </body>
     </html>

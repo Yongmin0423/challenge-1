@@ -22,8 +22,10 @@ export default function ProductCard({
   price,
   align = "center",
 }: ProductCardProps) {
+  const alignClass = align === "left" ? "Left" : "";
+
   return (
-    <Link href={`/${id}`} className={cx("Card", align)}>
+    <Link href={`/${id}`} className={cx("Card", alignClass)}>
       <div className={cx("Image")}>
         <Image fill src={image} alt={title} />
       </div>
