@@ -5,24 +5,39 @@ import styles from "./HeaderM.module.scss";
 import Hamberger from "@/assets/icons/Hamberger";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { getProductById } from "@/data/products";
+import { getProductById, productNameToId } from "@/data/products";
 import ArrowLeft from "@/assets/icons/ArrowLeft";
 import Link from "next/link";
+import { categories } from "@/data/categories";
 
 const cx = cn.bind(styles);
 
 export default function HeaderM() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [openCategories, setOpenCategories] = React.useState<Set<string>>(
+    new Set()
+  );
   const pathname = usePathname();
-
   const router = useRouter();
-
   const productId = pathname?.slice(1);
   const product = productId ? getProductById(productId) : null;
   const isDetailPage = !!product;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  //중복 확인 후 카테고리 열림/닫힘을 확인하기 위한 set활용
+  const toggleCategory = (categoryTitle: string) => {
+    setOpenCategories((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(categoryTitle)) {
+        newSet.delete(categoryTitle);
+      } else {
+        newSet.add(categoryTitle);
+      }
+      return newSet;
+    });
   };
 
   const handleBack = () => {
@@ -76,76 +91,45 @@ export default function HeaderM() {
           <div className={cx("MenuCategories")}>
             <div className={cx("CategoryTitle")}>전체 카테고리</div>
             <div className={cx("CategoryItem")}>제트상품</div>
-            <Link
-              href="/banner-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              현수막
-            </Link>
-            <Link
-              href="/print-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              실사출력
-            </Link>
-            <Link
-              href="/display-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              배너
-            </Link>
-            <Link
-              href="/card-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              명함
-            </Link>
-            <Link
-              href="/sticker-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              스티커
-            </Link>
-            <Link
-              href="/promo-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              인쇄/판촉
-            </Link>
-            <Link
-              href="/sign-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              간판
-            </Link>
-            <Link
-              href="/eco-01"
-              className={cx("CategoryItem", "Eco")}
-              onClick={toggleMenu}
-            >
-              친환경
-            </Link>
-            <Link
-              href="/misc-01"
-              className={cx("CategoryItem")}
-              onClick={toggleMenu}
-            >
-              셀프디자인
-            </Link>
-            <Link
-              href="/misc-01"
-              className={cx("CategoryItem", "Jetmall")}
-              onClick={toggleMenu}
-            >
-              제트몰
-            </Link>
+            {categories.map((category) => (
+              <div key={category.title} className={cx("CategoryGroup")}>
+                <div
+                  className={cx("CategoryItem", {
+                    Eco: category.title === "친환경",
+                    Jetmall: category.title === "제트몰",
+                    Open: openCategories.has(category.title),
+                  })}
+                  onClick={() => toggleCategory(category.title)}
+                >
+                  {category.title}
+                </div>
+                <div
+                  className={cx("SubItems", {
+                    Open: openCategories.has(category.title),
+                  })}
+                >
+                  {category.items.map((item) => {
+                    return (
+                      <Link
+                        key={item}
+                        href={`/${productNameToId[item] || ""}`}
+                        className={cx("SubItem")}
+                        onClick={(e) => {
+                          if (item === "준비중") {
+                            e.preventDefault();
+                            alert("준비중인 상품입니다.");
+                            return;
+                          }
+                          toggleMenu();
+                        }}
+                      >
+                        {item}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
