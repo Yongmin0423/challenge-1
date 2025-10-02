@@ -4,17 +4,17 @@ import styles from "./ProductList.module.scss";
 
 const cx = cn.bind(styles);
 
-interface Product {
+type ProductListItem = {
   id: string;
   image: string;
   title: string;
   description?: string;
   price?: string;
-}
+};
 
 interface ProductListProps {
   title: string;
-  products: Product[];
+  products: ProductListItem[];
   align?: "center" | "left";
   maxItems?: number;
   mobileMaxItems?: number;

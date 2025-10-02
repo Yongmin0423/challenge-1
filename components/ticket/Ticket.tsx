@@ -4,15 +4,15 @@ import styles from "./Ticket.module.scss";
 
 const cx = cn.bind(styles);
 
-export default function Ticket({
-  data,
-}: {
+type TicketProps = {
   data: {
     image: string;
     title: string;
     descriptions: string[];
   };
-}) {
+};
+
+export default function Ticket({ data }: TicketProps) {
   return (
     <div className={cx('container')}>
       <div className={cx('image')}>
