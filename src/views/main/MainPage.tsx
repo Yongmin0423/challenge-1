@@ -39,10 +39,6 @@ export default function MainPage() {
         </div>
       </div>
 
-      <div className={cx("Consultation")}>
-        <ConsultationBanner />
-      </div>
-
       <div className={cx("FullWidth")}>
         <Link href="/AdBanner" className={cx("MiddleImage")}>
           <Image fill src={AdBanner} alt="광고 이미지" />

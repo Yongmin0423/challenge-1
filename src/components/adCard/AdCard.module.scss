@@ -11,14 +11,24 @@
 }
 
 .Image {
-  position: relative;
-  width: 268px;
-  height: 297px;
-  img {
-    border-radius: 8px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0px 24px;
   }
+
   @media (max-width: 768px) {
     width: 100%;
+  }
+}
+
+.ImageInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+
+  img {
+    border-radius: 8px;
   }
 }
 
@@ -77,11 +87,8 @@
         width: 100%;
       }
     }
-  }
-}
-
-.Consultation {
-  @media (max-width: 768px) {
-    display: none;
+    @media (max-width: 768px) {
+      padding: 0 24px;
+    }
   }
 }

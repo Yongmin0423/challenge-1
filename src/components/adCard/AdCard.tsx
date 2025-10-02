@@ -26,7 +26,9 @@ export default function AdCard({
   return (
     <div className={cx("Container")}>
       <div className={cx("Image")}>
-        <Image fill src={image} alt={title} />
+        <div className={cx("ImageInner")}>
+          <Image fill src={image} alt={title} />
+        </div>
       </div>
 
       <div className={cx("Content")}>

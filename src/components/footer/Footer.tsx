@@ -1,6 +1,6 @@
 import Link from "next/link";
 import cn from "classnames/bind";
-import styles from "./FooterW.module.scss";
+import styles from "./Footer.module.scss";
 import Chat from "@/assets/icons/Chat";
 
 const cx = cn.bind(styles);
