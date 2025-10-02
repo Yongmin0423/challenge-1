@@ -13,14 +13,14 @@ export default function FooterM() {
           <Chat />
         </div>
         <div>
-          <Link href="">회사소개</Link>
-          <Link href="">이용약관</Link>
-          <Link href="">개인정보처리방침</Link>
+          <Link href="/about">회사소개</Link>
+          <Link href="/terms">이용약관</Link>
+          <Link href="/privacy">개인정보처리방침</Link>
         </div>
         <div>
-          <Link href="">대량문의</Link>
-          <Link href="">제휴문의</Link>
-          <Link href="">
+          <Link href="/bulk-inquiry">대량문의</Link>
+          <Link href="/partnership">제휴문의</Link>
+          <Link href="tel:032-710-1271">
             고객센터 <span>032-710-1271</span>
           </Link>
         </div>

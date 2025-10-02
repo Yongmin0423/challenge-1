@@ -1,18 +1,19 @@
+import { memo } from "react";
 import Image from "next/image";
 import cn from "classnames/bind";
 import styles from "./Ticket.module.scss";
 
 const cx = cn.bind(styles);
 
-export default function Ticket({
-  data,
-}: {
+type TicketProps = {
   data: {
     image: string;
     title: string;
     descriptions: string[];
   };
-}) {
+};
+
+function Ticket({ data }: TicketProps) {
   return (
     <div className={cx('container')}>
       <div className={cx('image')}>
@@ -27,3 +28,5 @@ export default function Ticket({
     </div>
   );
 }
+
+export default memo(Ticket);

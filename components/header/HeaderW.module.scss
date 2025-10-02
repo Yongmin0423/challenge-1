@@ -26,15 +26,12 @@
     display: flex;
     justify-content: space-between;
   }
-  p {
+  a {
     display: flex;
     align-items: center;
     gap: 4px;
     color: #154686;
     cursor: pointer;
-    &:hover {
-      font-weight: 500;
-    }
   }
   .header-bottom {
     padding: 8px 36px 36px 16px;

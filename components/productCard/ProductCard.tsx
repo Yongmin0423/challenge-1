@@ -1,10 +1,12 @@
 import Image from "next/image";
 import cn from "classnames/bind";
 import styles from "./ProductCard.module.scss";
+import Link from "next/link";
 
 const cx = cn.bind(styles);
 
 interface ProductCardProps {
+  id?: string;
   image: string;
   title: string;
   description?: string;
@@ -13,6 +15,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({
+  id,
   image,
   title,
   description,
@@ -20,7 +23,7 @@ export default function ProductCard({
   align = "center",
 }: ProductCardProps) {
   return (
-    <div className={cx("card", align)}>
+    <Link href={`/${id}`} className={cx("card", align)}>
       <div className={cx("image")}>
         <Image fill src={image} alt={title} />
       </div>
@@ -31,6 +34,6 @@ export default function ProductCard({
         {description && <p className={cx("description")}>{description}</p>}
         {price && <p className={cx("price")}>{price}</p>}
       </div>
-    </div>
+    </Link>
   );
 }

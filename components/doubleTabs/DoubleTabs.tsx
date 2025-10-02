@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { categories } from "../allCategory/AllCategory";
+import { useState, memo } from "react";
+import { categories } from "@/data/categories";
 import cn from "classnames/bind";
 import styles from "./DoubleTabs.module.scss";
 import AdCard from "../adCard/AdCard";
@@ -9,7 +9,7 @@ import { adCardData, productNameToId } from "@/data/products";
 
 const cx = cn.bind(styles);
 
-export default function DoubleTabs() {
+function DoubleTabs() {
   const [mainCategory, setMainCategory] = useState(categories[0].title);
   const [subCategory, setSubCategory] = useState(categories[0].items[0]);
 
@@ -73,7 +73,7 @@ export default function DoubleTabs() {
         <strong>
           <AdCard
             image={
-              adCardData[subCategory]?.image || adCardData["수성현수막"].image
+              adCardData[subCategory]?.images[0] || adCardData["수성현수막"].images[0]
             }
             title={
               adCardData[subCategory]?.title || adCardData["수성현수막"].title
@@ -93,3 +93,5 @@ export default function DoubleTabs() {
     </div>
   );
 }
+
+export default memo(DoubleTabs);

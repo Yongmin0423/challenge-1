@@ -4,13 +4,13 @@ import Link from "next/link";
 import cn from "classnames/bind";
 import styles from "./HeaderW.module.scss";
 import Image from "next/image";
-
-const cx = cn.bind(styles);
 import Logo from "@/assets/images/Logo.png";
 import CartIcon from "@/assets/icons/CartIcon";
 import ChevronDown from "@/assets/icons/ChevronDown";
 import { useState } from "react";
 import AllCategory from "../allCategory/AllCategory";
+
+const cx = cn.bind(styles);
 
 export default function Header() {
   const [showAllCategory, setShowAllCategory] = useState(false);
@@ -32,10 +32,10 @@ export default function Header() {
           <Image src={Logo} alt="로고이미지" />
         </Link>
         <div>
-          <p>
+          <Link href="/cart">
             <CartIcon />
             장바구니
-          </p>
+          </Link>
         </div>
       </div>
       <div className={cx("header-bottom")}>

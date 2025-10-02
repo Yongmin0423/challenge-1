@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import cn from "classnames/bind";
 import styles from "./Swiper.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const cx = cn.bind(styles);
 
@@ -15,6 +16,7 @@ interface SwiperComponentProps {
   slides: {
     id: number;
     image: string;
+    link: string;
   }[];
   autoplay?: boolean;
   navigation?: boolean;
@@ -49,14 +51,14 @@ const SwiperComponent = ({
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className={cx("slide")}>
-            <div className={cx("slideContent")}>
+            <Link href={slide.link} className={cx("slideContent")}>
               <Image
                 fill
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
                 style={{ objectFit: "cover" }}
               />
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

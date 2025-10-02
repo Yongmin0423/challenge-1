@@ -1,26 +1,27 @@
+import { memo } from "react";
 import ProductCard from "../productCard/ProductCard";
 import cn from "classnames/bind";
 import styles from "./ProductList.module.scss";
 
 const cx = cn.bind(styles);
 
-interface Product {
-  id: number;
+type ProductListItem = {
+  id: string;
   image: string;
   title: string;
   description?: string;
   price?: string;
-}
+};
 
 interface ProductListProps {
   title: string;
-  products: Product[];
+  products: ProductListItem[];
   align?: "center" | "left";
   maxItems?: number;
   mobileMaxItems?: number;
 }
 
-export default function ProductList({
+function ProductList({
   title,
   products,
   align = "center",
@@ -53,6 +54,7 @@ export default function ProductList({
             {mobileProducts.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 image={product.image}
                 title={product.title}
                 description={product.description}
@@ -66,3 +68,5 @@ export default function ProductList({
     </div>
   );
 }
+
+export default memo(ProductList);

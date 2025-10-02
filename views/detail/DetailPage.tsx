@@ -13,20 +13,12 @@ interface DetailPageProps {
   productId: string;
 }
 
-export default function DetailPage({ product, productId }: DetailPageProps) {
-  // 임시로 같은 이미지 4개를 배열로 생성 (나중에 Product 타입에 images[] 추가 예정)
-  const productImages = [
-    product.image,
-    product.image,
-    product.image,
-    product.image,
-  ];
-
-  // 같은 카테고리 상품 랜덤으로 가져오기
+export default function DetailPage({ product }: DetailPageProps) {
+  //같은 카테고리 내 상품 가져오기
   const recommendedProducts = getProductsFromSameCategory(product.id, 5).map(
-    (p, index) => ({
-      id: index,
-      image: p.image,
+    (p) => ({
+      id: p.id,
+      image: p.images[0],
       title: p.title,
       description: p.description,
       price: p.price,
@@ -40,7 +32,7 @@ export default function DetailPage({ product, productId }: DetailPageProps) {
       </div>
       <div className={cx("product-info")}>
         <div className={cx("image-section")}>
-          <ProductImagePreview images={productImages} />
+          <ProductImagePreview images={product.images} />
         </div>
         <div className={cx("info-section")}>
           <div className={cx("content")}>

@@ -21,13 +21,14 @@ export default function AdCard({
   description,
   price,
   productId,
-  available = true, // 기본값은 true (주문 가능)
+  available = true,
 }: AdCardProps) {
   return (
     <div className={cx("container")}>
       <div className={cx("image")}>
         <Image fill src={image} alt={title} />
       </div>
+
       <div className={cx("content")}>
         <div className={cx("top")}>
           <div className={cx("title")}>
@@ -45,6 +46,7 @@ export default function AdCard({
             <button disabled>준비중</button>
           )}
         </div>
+
         <div className={cx("consultation")}>
           <ConsultationBanner />
         </div>
