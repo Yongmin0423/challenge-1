@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   gap: 48px;
   @media (max-width: 768px) {
     gap: 24px;
@@ -10,7 +13,6 @@
 .TabContainer {
   display: flex;
   justify-content: center;
-  width: 100%;
   gap: 16px;
   overflow: auto;
 
@@ -87,7 +89,7 @@
 
 @media (max-width: 768px) {
   .TabContainer {
-    width: calc(100dvw - 32px);
+    width: 100%;
     justify-content: flex-start;
   }
   .SubTabSection .TabContainer {
@@ -105,6 +107,6 @@
   }
 }
 
-.SelectedStatus {
+.MainTabSection {
   width: 100%;
 }
