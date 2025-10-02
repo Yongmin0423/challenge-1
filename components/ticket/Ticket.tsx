@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 import cn from "classnames/bind";
 import styles from "./Ticket.module.scss";
@@ -12,7 +13,7 @@ type TicketProps = {
   };
 };
 
-export default function Ticket({ data }: TicketProps) {
+function Ticket({ data }: TicketProps) {
   return (
     <div className={cx('container')}>
       <div className={cx('image')}>
@@ -27,3 +28,5 @@ export default function Ticket({ data }: TicketProps) {
     </div>
   );
 }
+
+export default memo(Ticket);

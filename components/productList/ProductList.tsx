@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ProductCard from "../productCard/ProductCard";
 import cn from "classnames/bind";
 import styles from "./ProductList.module.scss";
@@ -20,7 +21,7 @@ interface ProductListProps {
   mobileMaxItems?: number;
 }
 
-export default function ProductList({
+function ProductList({
   title,
   products,
   align = "center",
@@ -67,3 +68,5 @@ export default function ProductList({
     </div>
   );
 }
+
+export default memo(ProductList);
