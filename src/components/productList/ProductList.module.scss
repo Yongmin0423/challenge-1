@@ -1,0 +1,45 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0px;
+}
+
+.Title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.ProductGrid {
+  display: flex;
+  width: 100%;
+}
+
+.WebItems {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.MobileItems {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+}

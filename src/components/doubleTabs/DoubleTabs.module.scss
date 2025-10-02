@@ -1,0 +1,112 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  gap: 48px;
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
+}
+.TabContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  overflow: auto;
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.TabItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  p {
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+
+.MainTabButton {
+  width: 64px;
+  height: 64px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.Active {
+    border: 2px solid black;
+  }
+}
+
+.SubTabSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.Separator {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.SelectedStatus {
+  width: 100%;
+}
+
+.SubTabButton {
+  padding: 7px 16px;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+
+  &.Active {
+    border-bottom: 2px solid black;
+  }
+}
+
+@media (max-width: 768px) {
+  .TabContainer {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .SubTabSection .TabContainer {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+  }
+  .SubTabButton {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+.MainTabSection {
+  width: 100%;
+}

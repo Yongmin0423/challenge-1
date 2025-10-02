@@ -1,0 +1,20 @@
+.PageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ContentContainer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+}
+
+.Content {
+  width: 100%;
+  max-width: 1080px;
+}

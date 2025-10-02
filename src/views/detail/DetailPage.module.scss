@@ -1,0 +1,73 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.Title {
+  font-weight: 800;
+  font-size: 32px;
+  text-align: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.ProductInfo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.ImageSection {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 1/1;
+
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.ProductImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.InfoSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.Name {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.Description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.6;
+}
