@@ -23,21 +23,21 @@ export default function Input({
   ...props
 }: InputProps) {
   return (
-    <div className={cx("inputWrapper", className)}>
+    <div className={cx("InputWrapper", className)}>
       {label && (
-        <label className={cx("label")} htmlFor={props.id}>
+        <label className={cx("Label")} htmlFor={props.id}>
           {label}
         </label>
       )}
       <input
         ref={ref}
         placeholder={placeholder}
-        className={cx("input", { error: !!error })}
+        className={cx("Input", { Error: !!error })}
         {...props}
       />
-      {error && <span className={cx("errorMessage")}>{error.message}</span>}
+      {error && <span className={cx("ErrorMessage")}>{error.message}</span>}
       {!error && helperText && (
-        <span className={cx("helperText")}>{helperText}</span>
+        <span className={cx("HelperText")}>{helperText}</span>
       )}
     </div>
   );

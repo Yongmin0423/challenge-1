@@ -1,4 +1,4 @@
-.container {
+.Container {
   display: flex;
   flex-direction: column;
   padding: 32px 48px;
@@ -7,11 +7,11 @@
   }
 }
 
-.top {
+.Top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .text {
+  .Text {
     display: flex;
     gap: 16px;
     a {
@@ -24,14 +24,14 @@
   }
 }
 
-.separator {
+.Separator {
   width: 100%;
   height: 1px;
   background-color: #e0e0e0;
   margin: 20px 0;
 }
 
-.bottom {
+.Bottom {
   display: flex;
   flex-direction: column;
   gap: 4px;

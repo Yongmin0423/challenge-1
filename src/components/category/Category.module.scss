@@ -1,8 +1,8 @@
-.container {
+.Container {
   flex-shrink: 0;
   min-width: max-content;
 
-  .title {
+  .Title {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -14,11 +14,11 @@
       padding: 14px 12px;
     }
   }
-  .items {
+  .Items {
     display: flex;
     flex-direction: column;
 
-    .item-link {
+    .ItemLink {
       padding: 8px 12px;
       color: inherit;
       text-decoration: none;

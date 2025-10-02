@@ -34,10 +34,10 @@ function ProductList({
     : displayProducts;
 
   return (
-    <div className={cx("container")}>
-      <h3 className={cx("title")}>{title}</h3>
-      <div className={cx("product-grid")}>
-        <div className={cx("web-items")}>
+    <div className={cx("Container")}>
+      <h3 className={cx("Title")}>{title}</h3>
+      <div className={cx("ProductGrid")}>
+        <div className={cx("WebItems")}>
           {displayProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -51,7 +51,7 @@ function ProductList({
           ))}
         </div>
         {mobileMaxItems && (
-          <div className={cx("mobile-items")}>
+          <div className={cx("MobileItems")}>
             {mobileProducts.map((product) => (
               <ProductCard
                 key={product.id}

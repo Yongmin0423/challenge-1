@@ -1,11 +1,11 @@
-.container {
+.Container {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 24px 0px;
 }
 
-.title {
+.Title {
   text-align: center;
   font-size: 24px;
   font-weight: 700;
@@ -17,12 +17,12 @@
   }
 }
 
-.product-grid {
+.ProductGrid {
   display: flex;
   width: 100%;
 }
 
-.web-items {
+.WebItems {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
@@ -33,7 +33,7 @@
   }
 }
 
-.mobile-items {
+.MobileItems {
   display: none;
 
   @media (max-width: 768px) {

@@ -1,4 +1,4 @@
-.order-section {
+.OrderSection {
   form {
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
   }
 }
 
-.order-form {
+.OrderForm {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -21,7 +21,7 @@
     gap: 24px;
   }
 }
-.upload-button {
+.UploadButton {
   input {
     display: none;
   }
@@ -37,7 +37,7 @@
     cursor: pointer;
   }
 
-  .file {
+  .File {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,27 +47,27 @@
     }
   }
 
-  .file-name {
+  .FileName {
     margin-top: 8px;
     font-size: 14px;
     color: #333;
   }
 
-  .error-message {
+  .ErrorMessage {
     font-size: 12px;
     color: #dc3545;
     margin-top: 4px;
   }
 }
 
-.price {
+.Price {
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #292c2e;
   font-weight: 400;
   font-size: 14px;
-  .item {
+  .Item {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,7 +80,7 @@
       text-align: right;
     }
 
-    .total-price {
+    .TotalPrice {
       text-align: right;
 
       p:first-child {
@@ -98,7 +98,7 @@
   }
 }
 
-.button {
+.Button {
   width: 100%;
   display: flex;
   gap: 8px;
@@ -124,7 +124,7 @@
   }
 }
 
-.caution-box {
+.CautionBox {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -132,12 +132,12 @@
   background-color: #f6f8fb;
 }
 
-.caution-title {
+.CautionTitle {
   display: flex;
   gap: 4px;
 }
 
-.caution-content {
+.CautionContent {
   display: flex;
   flex-direction: column;
   gap: 8px;

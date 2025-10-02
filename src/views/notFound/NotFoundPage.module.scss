@@ -1,4 +1,4 @@
-.container {
+.Container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,12 +7,12 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.content {
+.Content {
   text-align: center;
   color: white;
 }
 
-.error-code {
+.ErrorCode {
   font-size: 10rem;
   font-weight: 700;
   margin: 0;
@@ -24,7 +24,7 @@
   }
 }
 
-.title {
+.Title {
   font-size: 2rem;
   font-weight: 600;
   margin: 1rem 0;
@@ -34,7 +34,7 @@
   }
 }
 
-.description {
+.Description {
   font-size: 1.125rem;
   margin: 1rem 0 2rem;
   opacity: 0.9;
@@ -44,7 +44,7 @@
   }
 }
 
-.home-button {
+.HomeButton {
   padding: 0.875rem 2rem;
   font-size: 1rem;
   font-weight: 500;

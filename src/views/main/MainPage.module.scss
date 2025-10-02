@@ -1,11 +1,11 @@
-.pageWrapper {
+.PageWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.consultation {
+.Consultation {
   width: 100%;
   margin-top: 32px;
 
@@ -14,12 +14,12 @@
   }
 }
 
-.fullWidth {
+.FullWidth {
   width: 100%;
   max-width: 1440px;
 }
 
-.contentContainer {
+.ContentContainer {
   width: 100%;
   max-width: 1440px;
   display: flex;
@@ -35,12 +35,12 @@
   }
 }
 
-.content {
+.Content {
   width: 100%;
   max-width: 1080px;
 }
 
-.tickets {
+.Tickets {
   display: flex;
   justify-content: center;
   gap: 24px;
@@ -51,12 +51,12 @@
   }
 }
 
-.tabs {
+.Tabs {
   display: flex;
   justify-content: center;
 }
 
-.middle-image {
+.MiddleImage {
   display: block;
   position: relative;
   width: 100%;
@@ -68,7 +68,7 @@
   }
 }
 
-.famous {
+.Famous {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,8 +85,8 @@
   padding-bottom: 72px;
 }
 
-.item-images {
-  .web-items {
+.ItemImages {
+  .WebItems {
     display: flex;
     gap: 24px;
 
@@ -95,7 +95,7 @@
     }
   }
 
-  .mobile-items {
+  .MobileItems {
     display: none;
 
     @media (max-width: 768px) {

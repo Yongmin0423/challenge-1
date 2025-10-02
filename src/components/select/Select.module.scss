@@ -1,10 +1,10 @@
-.label {
+.Label {
   font-size: 14px;
   font-weight: 500;
   color: #333;
 }
 
-.select {
+.Select {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -38,7 +38,7 @@
     cursor: not-allowed;
   }
 
-  &.error {
+  &.Error {
     border-color: #dc3545;
 
     &:focus {
@@ -48,7 +48,7 @@
   }
 }
 
-.selectContent {
+.SelectContent {
   position: absolute;
   left: 0;
   right: 0;
@@ -61,7 +61,7 @@
   z-index: 1000;
 }
 
-.selectItem {
+.SelectItem {
   width: 100%;
   padding: 8px 16px;
   border: none;
@@ -75,7 +75,7 @@
     background-color: #f5f5f5;
   }
 
-  &.selected {
+  &.Selected {
     background-color: #e3f2fd;
   }
 
@@ -85,13 +85,13 @@
   }
 }
 
-.errorMessage {
+.ErrorMessage {
   font-size: 12px;
   color: #dc3545;
   margin-top: 4px;
 }
 
-.helperText {
+.HelperText {
   font-size: 12px;
   color: #666;
   margin-top: 4px;
@@ -99,14 +99,14 @@
 
 // 반응형 디자인
 @media (max-width: 768px) {
-  .select {
+  .Select {
     padding: 10px 12px;
     font-size: 14px;
     background-size: 14px;
     background-position: right 10px center;
   }
 
-  .label {
+  .Label {
     font-size: 13px;
   }
 }

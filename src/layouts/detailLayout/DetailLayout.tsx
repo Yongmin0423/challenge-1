@@ -9,9 +9,9 @@ export default function DetailLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={cx("pageWrapper")}>
-      <div className={cx("contentContainer")}>
-        <div className={cx("content")}>{children}</div>
+    <div className={cx("PageWrapper")}>
+      <div className={cx("ContentContainer")}>
+        <div className={cx("Content")}>{children}</div>
       </div>
     </div>
   );

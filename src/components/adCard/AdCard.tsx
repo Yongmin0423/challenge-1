@@ -24,14 +24,14 @@ export default function AdCard({
   available = true,
 }: AdCardProps) {
   return (
-    <div className={cx("container")}>
-      <div className={cx("image")}>
+    <div className={cx("Container")}>
+      <div className={cx("Image")}>
         <Image fill src={image} alt={title} />
       </div>
 
-      <div className={cx("content")}>
-        <div className={cx("top")}>
-          <div className={cx("title")}>
+      <div className={cx("Content")}>
+        <div className={cx("Top")}>
+          <div className={cx("Title")}>
             <h3>{title}</h3>
             <p>{description}</p>
           </div>
@@ -47,7 +47,7 @@ export default function AdCard({
           )}
         </div>
 
-        <div className={cx("consultation")}>
+        <div className={cx("Consultation")}>
           <ConsultationBanner />
         </div>
       </div>

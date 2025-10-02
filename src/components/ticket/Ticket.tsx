@@ -15,11 +15,11 @@ type TicketProps = {
 
 function Ticket({ data }: TicketProps) {
   return (
-    <div className={cx('container')}>
-      <div className={cx('image')}>
+    <div className={cx('Container')}>
+      <div className={cx('Image')}>
         <Image fill src={data.image} alt={data.descriptions[0]} />
       </div>
-      <div className={cx('content')}>
+      <div className={cx('Content')}>
         <h3>{data.title}</h3>
         {data.descriptions.map((description, index) => (
           <p key={index}>{description}</p>

@@ -1,14 +1,14 @@
-.card {
+.Card {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &.left {
+  &.Left {
     align-items: flex-start;
   }
 }
 
-.image {
+.Image {
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
@@ -18,11 +18,11 @@
   }
 }
 
-.content {
+.Content {
   width: 100%;
 }
 
-.title {
+.Title {
   display: flex;
   justify-content: center;
   padding: 16px 18px;
@@ -36,30 +36,30 @@
     padding-bottom: 0px;
   }
 
-  .left & {
+  .Left & {
     justify-content: flex-start;
     padding-left: 0;
   }
 }
 
-.description {
+.Description {
   padding: 0 18px 8px;
   font-size: 14px;
   line-height: 22px;
   color: #666;
 
-  .left & {
+  .Left & {
     padding-left: 0;
   }
 }
 
-.price {
+.Price {
   padding: 0 18px 16px;
   font-weight: 700;
   font-size: 16px;
   color: #fd914b;
 
-  .left & {
+  .Left & {
     padding-left: 0;
   }
 }

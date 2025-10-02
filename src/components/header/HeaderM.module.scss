@@ -1,4 +1,4 @@
-.header-mobile {
+.HeaderMobile {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,14 +9,14 @@
   z-index: 1000;
 }
 
-.logo {
+.Logo {
   padding: 15px 18px;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.back-btn {
+.BackBtn {
   background-color: white;
   border: none;
   width: 24px;
@@ -24,12 +24,12 @@
   cursor: pointer;
 }
 
-.title {
+.Title {
   font-weight: 700;
   font-size: 18px;
 }
 
-.hamburger-btn {
+.HamburgerBtn {
   background: none;
   border: none;
   padding: 8px;
@@ -44,7 +44,7 @@
   }
 }
 
-.overlay {
+.Overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -54,7 +54,7 @@
   z-index: 1001;
 }
 
-.side-menu {
+.SideMenu {
   position: fixed;
   top: 0;
   right: -300px;
@@ -65,12 +65,12 @@
   transition: right 0.3s ease-in-out;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
 
-  &.open {
+  &.Open {
     right: 0;
   }
 }
 
-.close-btn {
+.CloseBtn {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -92,13 +92,13 @@
   }
 }
 
-.menu-content {
+.MenuContent {
   padding: 20px;
   height: 100%;
   overflow-y: auto;
 }
 
-.menu-top {
+.MenuTop {
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -119,11 +119,11 @@
   }
 }
 
-.menu-categories {
+.MenuCategories {
   display: flex;
   flex-direction: column;
 
-  .category-title {
+  .CategoryTitle {
     padding: 12px 0;
     color: #333;
     font-size: 18px;
@@ -132,7 +132,7 @@
     pointer-events: none;
   }
 
-  .category-item {
+  .CategoryItem {
     padding: 12px 0;
     color: #333;
     font-size: 16px;
@@ -149,7 +149,7 @@
       padding-right: 20px;
     }
 
-    &.eco {
+    &.Eco {
       color: #00b54a;
 
       &:hover {
@@ -157,7 +157,7 @@
       }
     }
 
-    &.jetmall {
+    &.Jetmall {
       color: #fd914b;
 
       &:hover {
@@ -172,7 +172,7 @@
 }
 
 @media (min-width: 769px) {
-  .header-mobile {
+  .HeaderMobile {
     display: none;
   }
 }

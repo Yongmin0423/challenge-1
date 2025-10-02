@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Product } from "@/data/products";
 
@@ -32,7 +32,7 @@ export function useOrderForm(product: Product) {
   const uploadedFile = watch("file");
 
   // 옵션 가격 state 관리
-  const [optionSelections, setOptionSelections] = useState<
+  const [optionSelections, setOptionSelections] = React.useState<
     Record<string, number>
   >({});
 

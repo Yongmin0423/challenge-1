@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React from "react";
 import { Product } from "@/data/products";
 import {
   calculateProductPrice,
@@ -11,17 +11,17 @@ export function useOrderPrice(
   quantity: number | null,
   optionSelections: Record<string, number>
 ) {
-  const productPrice = useMemo(
+  const productPrice = React.useMemo(
     () => calculateProductPrice(quantity, product.basePrice),
     [quantity, product.basePrice]
   );
 
-  const optionsPrice = useMemo(
+  const optionsPrice = React.useMemo(
     () => calculateOptionsPrice(optionSelections),
     [optionSelections]
   );
 
-  const totalPrice = useMemo(
+  const totalPrice = React.useMemo(
     () => calculateTotalPrice(productPrice, optionsPrice),
     [productPrice, optionsPrice]
   );

@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import cn from "classnames/bind";
 import styles from "./Select.module.scss";
 import ChevronDown from "@/assets/icons/ChevronDown";
@@ -15,10 +15,10 @@ interface SelectContextValue {
   error?: { message?: string };
 }
 
-const SelectContext = createContext<SelectContextValue | null>(null);
+const SelectContext = React.createContext<SelectContextValue | null>(null);
 
 const useSelect = () => {
-  const context = useContext(SelectContext);
+  const context = React.useContext(SelectContext);
   if (!context) {
     throw new Error(
       "Select 관련 컴포넌트는 Select 컴포넌트 내에서 사용되어야 합니다."
@@ -43,7 +43,7 @@ export function Select({
   disabled,
   error,
 }: SelectProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <SelectContext.Provider
@@ -58,7 +58,7 @@ export function Select({
     >
       <div style={{ position: "relative", width: "100%" }}>
         {children}
-        {error && <span className={cx("errorMessage")}>{error.message}</span>}
+        {error && <span className={cx("ErrorMessage")}>{error.message}</span>}
       </div>
     </SelectContext.Provider>
   );
@@ -76,7 +76,7 @@ export function SelectTrigger({ children }: SelectTriggerProps) {
     <button
       type="button"
       disabled={disabled}
-      className={cx("select", { error: !!error })}
+      className={cx("Select", { Error: !!error })}
       onClick={() => !disabled && setIsOpen(!isOpen)}
     >
       {children}
@@ -97,7 +97,7 @@ export function SelectContent({ children }: SelectContentProps) {
 
   if (!isOpen) return null;
 
-  return <div className={cx("selectContent")}>{children}</div>;
+  return <div className={cx("SelectContent")}>{children}</div>;
 }
 
 // SelectItem
@@ -126,7 +126,7 @@ export function SelectItem({ value, children }: SelectItemProps) {
     <button
       type="button"
       disabled={disabled}
-      className={cx("selectItem", { selected: isSelected })}
+      className={cx("SelectItem", { Selected: isSelected })}
       onClick={handleClick}
     >
       {children}
@@ -157,7 +157,7 @@ interface SelectLabelProps {
 
 export function SelectLabel({ children, htmlFor }: SelectLabelProps) {
   return (
-    <label className={cx("label")} htmlFor={htmlFor}>
+    <label className={cx("Label")} htmlFor={htmlFor}>
       {children}
     </label>
   );

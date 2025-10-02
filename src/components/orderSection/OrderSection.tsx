@@ -50,9 +50,9 @@ export default function OrderSection({ product }: OrderSectionProps) {
   );
 
   return (
-    <div className={cx("order-section")}>
+    <div className={cx("OrderSection")}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={cx("order-form")}>
+        <div className={cx("OrderForm")}>
           {/* 제작물 제목 폼*/}
           <Controller
             name="title"
@@ -150,7 +150,7 @@ export default function OrderSection({ product }: OrderSectionProps) {
           control={control}
           rules={{ required: "디자인 파일을 업로드해주세요" }}
           render={() => (
-            <div className={cx("upload-button")}>
+            <div className={cx("UploadButton")}>
               <input
                 id="file-input"
                 type="file"
@@ -161,13 +161,13 @@ export default function OrderSection({ product }: OrderSectionProps) {
                 디자인 파일 업로드
               </button>
               {uploadedFile && (
-                <div className={cx("file")}>
-                  <p className={cx("file-name")}>{uploadedFile.name}</p>
+                <div className={cx("File")}>
+                  <p className={cx("FileName")}>{uploadedFile.name}</p>
                   <span onClick={handleFileRemove}>x</span>
                 </div>
               )}
               {errors.file && (
-                <p className={cx("error-message")}>{errors.file.message}</p>
+                <p className={cx("ErrorMessage")}>{errors.file.message}</p>
               )}
             </div>
           )}
@@ -179,23 +179,23 @@ export default function OrderSection({ product }: OrderSectionProps) {
         </div>
 
         {/* 가격 */}
-        <div className={cx("price")}>
-          <div className={cx("item")}>
+        <div className={cx("Price")}>
+          <div className={cx("Item")}>
             <p>상품 금액</p>
             <p>{formatPrice(productPrice)}원</p>
           </div>
           {product.options?.map((option) => {
             const price = optionSelections[option.label] || 0;
             return (
-              <div key={option.label} className={cx("item")}>
+              <div key={option.label} className={cx("Item")}>
                 <p>{option.label} 금액</p>
                 <p>{formatPrice(price)}원</p>
               </div>
             );
           })}
-          <div className={cx("item")}>
+          <div className={cx("Item")}>
             <p>총 금액</p>
-            <div className={cx("total-price")}>
+            <div className={cx("TotalPrice")}>
               <p>{formatPrice(totalPrice)}원</p>
               <p>배송비 별도</p>
             </div>
@@ -203,7 +203,7 @@ export default function OrderSection({ product }: OrderSectionProps) {
         </div>
 
         {/* 버튼 */}
-        <div className={cx("button")}>
+        <div className={cx("Button")}>
           <button type="button" onClick={handleAddToCart}>
             장바구니
           </button>
@@ -211,12 +211,12 @@ export default function OrderSection({ product }: OrderSectionProps) {
         </div>
 
         {/* 주의사항 */}
-        <div className={cx("caution-box")}>
-          <div className={cx("caution-title")}>
+        <div className={cx("CautionBox")}>
+          <div className={cx("CautionTitle")}>
             <Caution />
             <h3>참고사항</h3>
           </div>
-          <div className={cx("caution-content")}>
+          <div className={cx("CautionContent")}>
             <p>
               • 500장 이상은 <Link href="">대량문의</Link>를 통해 주문해 주세요.
             </p>

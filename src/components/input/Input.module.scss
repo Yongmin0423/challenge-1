@@ -1,18 +1,18 @@
-.inputWrapper {
+.InputWrapper {
   display: flex;
   flex-direction: column;
   gap: 4px;
   width: 100%;
 }
 
-.label {
+.Label {
   font-size: 14px;
   font-weight: 500;
   color: #333;
   padding: 4px 0px;
 }
 
-.input {
+.Input {
   width: 100%;
   padding: 8px 16px;
   border: 1px solid #ddd;
@@ -39,7 +39,7 @@
     cursor: not-allowed;
   }
 
-  &.error {
+  &.Error {
     border-color: #dc3545;
 
     &:focus {
@@ -49,13 +49,13 @@
   }
 }
 
-.errorMessage {
+.ErrorMessage {
   font-size: 12px;
   color: #dc3545;
   margin-top: 4px;
 }
 
-.helperText {
+.HelperText {
   font-size: 12px;
   color: #666;
   margin-top: 4px;
@@ -63,12 +63,12 @@
 
 // 반응형 디자인
 @media (max-width: 768px) {
-  .input {
+  .Input {
     padding: 10px 12px;
     font-size: 14px;
   }
 
-  .label {
+  .Label {
     font-size: 13px;
   }
 }

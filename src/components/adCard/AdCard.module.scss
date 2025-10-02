@@ -1,4 +1,4 @@
-.container {
+.Container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@
   }
 }
 
-.image {
+.Image {
   position: relative;
   width: 268px;
   height: 297px;
@@ -22,7 +22,7 @@
   }
 }
 
-.content {
+.Content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,12 +31,12 @@
     width: 100%;
     gap: 32px;
   }
-  .top {
+  .Top {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 16px;
-    .title {
+    .Title {
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -80,7 +80,7 @@
   }
 }
 
-.consultation {
+.Consultation {
   @media (max-width: 768px) {
     display: none;
   }

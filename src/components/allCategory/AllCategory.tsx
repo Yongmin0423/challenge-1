@@ -13,8 +13,8 @@ export default function AllCategory({
   onLinkClick?: () => void;
 }) {
   return (
-    <div className={cx("container")}>
-      <div className={cx("zet-production")}>
+    <div className={cx("Container")}>
+      <div className={cx("ZetProduction")}>
         <Link
           href="/z-product"
           onClick={() => {
@@ -24,7 +24,7 @@ export default function AllCategory({
           <p>제트상품</p>
           <p>~11시 이전</p>
         </Link>
-        <div className={cx("icon")}>
+        <div className={cx("Icon")}>
           <ChevronRight />
         </div>
       </div>

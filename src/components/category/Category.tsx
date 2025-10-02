@@ -31,8 +31,8 @@ export default function Category({
   };
 
   return (
-    <div className={cx('container')}>
-      <div className={cx('title')}>
+    <div className={cx('Container')}>
+      <div className={cx('Title')}>
         <p style={{ color: titleColor || "#154686" }}>
           {title === "친환경" ? (
             <>
@@ -44,7 +44,7 @@ export default function Category({
         </p>
         <ChevronRight fill={title === "제트몰" ? undefined : "#154686"} />
       </div>
-      <div className={cx('items')}>
+      <div className={cx('Items')}>
         {items.length > 0 &&
           items.map((item, index) => {
             const productId = productNameToId[item];
@@ -52,7 +52,7 @@ export default function Category({
               <Link
                 key={index}
                 href={`/${productId || ''}`}
-                className={cx('item-link')}
+                className={cx('ItemLink')}
                 onClick={(e) => handleItemClick(e, item)}
               >
                 {item}

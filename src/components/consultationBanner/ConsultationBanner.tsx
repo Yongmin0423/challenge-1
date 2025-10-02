@@ -7,8 +7,8 @@ const cx = cn.bind(styles);
 
 export default function ConsultationBanner() {
   return (
-    <div className={cx("container")}>
-      <div className={cx("content")}>
+    <div className={cx("Container")}>
+      <div className={cx("Content")}>
         <h3>
           <Telephone /> 디자인 작업이 필요하신가요?
         </h3>
@@ -22,7 +22,7 @@ export default function ConsultationBanner() {
           alert("해당 기능은 준비중입니다.");
         }}
         type="button"
-        className={cx("button")}
+        className={cx("Button")}
       >
         <Chat />
         <p>디자인 상담</p>

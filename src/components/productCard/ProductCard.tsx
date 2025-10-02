@@ -23,16 +23,16 @@ export default function ProductCard({
   align = "center",
 }: ProductCardProps) {
   return (
-    <Link href={`/${id}`} className={cx("card", align)}>
-      <div className={cx("image")}>
+    <Link href={`/${id}`} className={cx("Card", align)}>
+      <div className={cx("Image")}>
         <Image fill src={image} alt={title} />
       </div>
-      <div className={cx("content")}>
-        <div className={cx("title")}>
+      <div className={cx("Content")}>
+        <div className={cx("Title")}>
           <h4>{title}</h4>
         </div>
-        {description && <p className={cx("description")}>{description}</p>}
-        {price && <p className={cx("price")}>{price}</p>}
+        {description && <p className={cx("Description")}>{description}</p>}
+        {price && <p className={cx("Price")}>{price}</p>}
       </div>
     </Link>
   );

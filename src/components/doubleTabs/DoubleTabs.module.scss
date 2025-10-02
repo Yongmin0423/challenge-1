@@ -1,4 +1,4 @@
-.container {
+.Container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
     gap: 24px;
   }
 }
-.tabContainer {
+.TabContainer {
   display: flex;
   justify-content: center;
   width: 100dvw;
@@ -21,7 +21,7 @@
   scrollbar-width: none;
 }
 
-.tabItem {
+.TabItem {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   }
 }
 
-.mainTabButton {
+.MainTabButton {
   width: 64px;
   height: 64px;
   border: none;
@@ -45,12 +45,12 @@
     opacity: 0.8;
   }
 
-  &.active {
+  &.Active {
     border: 2px solid black;
   }
 }
 
-.subTabSection {
+.SubTabSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,13 +63,13 @@
   scrollbar-width: none;
 }
 
-.separator {
+.Separator {
   width: 100dvw;
   height: 1px;
   background-color: #e0e0e0;
 }
 
-.subTabButton {
+.SubTabButton {
   padding: 7px 16px;
   color: black;
   cursor: pointer;
@@ -80,17 +80,17 @@
     border-bottom: 2px solid black;
   }
 
-  &.active {
+  &.Active {
     border-bottom: 2px solid black;
   }
 }
 
 @media (max-width: 768px) {
-  .tabContainer {
+  .TabContainer {
     width: calc(100dvw - 32px);
     justify-content: flex-start;
   }
-  .subTabSection .tabContainer {
+  .SubTabSection .TabContainer {
     width: 100dvw;
     padding-left: 16px;
     padding-right: 16px;
@@ -99,13 +99,13 @@
     overflow-y: hidden;
     justify-content: flex-start;
   }
-  .subTabButton {
+  .SubTabButton {
     white-space: nowrap;
     flex-shrink: 0;
   }
 }
 
-.selectedStatus {
+.SelectedStatus {
   width: 100%;
   padding: 0 32px;
 }

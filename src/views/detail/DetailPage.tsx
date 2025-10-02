@@ -26,18 +26,18 @@ export default function DetailPage({ product }: DetailPageProps) {
   );
 
   return (
-    <div className={cx("container")}>
-      <div className={cx("title")}>
+    <div className={cx("Container")}>
+      <div className={cx("Title")}>
         <h2>{product.title}</h2>
       </div>
-      <div className={cx("product-info")}>
-        <div className={cx("image-section")}>
+      <div className={cx("ProductInfo")}>
+        <div className={cx("ImageSection")}>
           <ProductImagePreview images={product.images} />
         </div>
-        <div className={cx("info-section")}>
-          <div className={cx("content")}>
-            <h1 className={cx("name")}>{product.title}</h1>
-            <p className={cx("description")}>{product.description}</p>
+        <div className={cx("InfoSection")}>
+          <div className={cx("Content")}>
+            <h1 className={cx("Name")}>{product.title}</h1>
+            <p className={cx("Description")}>{product.description}</p>
           </div>
           <OrderSection product={product} />
         </div>

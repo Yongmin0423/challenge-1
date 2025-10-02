@@ -1,11 +1,11 @@
-.container {
+.Container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.title {
+.Title {
   font-weight: 800;
   font-size: 32px;
   text-align: center;
@@ -14,7 +14,7 @@
   }
 }
 
-.product-info {
+.ProductInfo {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -26,7 +26,7 @@
   }
 }
 
-.image-section {
+.ImageSection {
   position: relative;
   width: 50%;
   aspect-ratio: 1/1;
@@ -36,13 +36,13 @@
   }
 }
 
-.product-image {
+.ProductImage {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.info-section {
+.InfoSection {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -51,19 +51,19 @@
   }
 }
 
-.content {
+.Content {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 24px;
 }
 
-.name {
+.Name {
   font-weight: 700;
   font-size: 20px;
 }
 
-.description {
+.Description {
   font-size: 14px;
   font-weight: 400;
   color: #666;

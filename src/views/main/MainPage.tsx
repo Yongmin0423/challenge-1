@@ -21,37 +21,37 @@ const cx = cn.bind(styles);
 
 export default function MainPage() {
   return (
-    <div className={cx("pageWrapper")}>
-      <div className={cx("fullWidth")}>
+    <div className={cx("PageWrapper")}>
+      <div className={cx("FullWidth")}>
         <SwiperComponent slides={topSlides} />
       </div>
 
-      <div className={cx("contentContainer")}>
-        <div className={cx("content")}>
-          <div className={cx("tickets")}>
+      <div className={cx("ContentContainer")}>
+        <div className={cx("Content")}>
+          <div className={cx("Tickets")}>
             {examples.map((example) => (
               <Ticket key={example.id} data={example} />
             ))}
           </div>
-          <div className={cx("tabs")}>
+          <div className={cx("Tabs")}>
             <DoubleTabs />
           </div>
         </div>
       </div>
 
-      <div className={cx("consultation")}>
+      <div className={cx("Consultation")}>
         <ConsultationBanner />
       </div>
 
-      <div className={cx("fullWidth")}>
-        <Link href="/AdBanner" className={cx("middle-image")}>
+      <div className={cx("FullWidth")}>
+        <Link href="/AdBanner" className={cx("MiddleImage")}>
           <Image fill src={AdBanner} alt="광고 이미지" />
         </Link>
       </div>
 
-      <div className={cx("contentContainer")}>
-        <div className={cx("content")}>
-          <div className={cx("famous")}>
+      <div className={cx("ContentContainer")}>
+        <div className={cx("Content")}>
+          <div className={cx("Famous")}>
             <ProductList
               title="가장 많이 구매하시는 상품이에요!"
               products={bestSellingProducts}
@@ -62,7 +62,7 @@ export default function MainPage() {
         </div>
       </div>
 
-      <div className={cx("fullWidth")}>
+      <div className={cx("FullWidth")}>
         <SwiperComponent slides={bottomSlides} />
       </div>
     </div>

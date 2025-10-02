@@ -1,7 +1,7 @@
-.header {
+.Header {
   max-width: 100dvw;
 
-  .header-top {
+  .HeaderTop {
     display: flex;
     padding: 4px 48px;
     justify-content: flex-end;
@@ -15,7 +15,7 @@
     }
   }
 
-  .header-middle {
+  .HeaderMiddle {
     display: flex;
     align-items: center;
     padding: 21px 48px;
@@ -33,13 +33,13 @@
     color: #154686;
     cursor: pointer;
   }
-  .header-bottom {
+  .HeaderBottom {
     padding: 8px 36px 36px 16px;
     display: flex;
     align-items: center;
     gap: 48px;
 
-    .all-category {
+    .AllCategory {
       padding: 0px 12px;
       position: relative;
 
@@ -50,7 +50,7 @@
         cursor: pointer;
       }
 
-      .category-dropdown {
+      .CategoryDropdown {
         width: calc(100vw - 96px);
         max-width: 1440px;
         position: absolute;
@@ -64,7 +64,7 @@
       }
     }
 
-    .categories {
+    .Categories {
       display: flex;
       align-items: center;
 
@@ -81,7 +81,7 @@
           border-bottom-color: #505254;
         }
 
-        &.active {
+        &.Active {
           color: #121416;
           font-weight: bold;
           border-bottom-color: #121416;
@@ -95,7 +95,7 @@
             border-bottom-color: #00b54a;
           }
 
-          &.active {
+          &.Active {
             color: #121416;
             font-weight: bold;
             border-bottom-color: #121416;
@@ -107,7 +107,7 @@
 }
 
 @media (max-width: 768px) {
-  .header {
+  .Header {
     display: none;
   }
 }

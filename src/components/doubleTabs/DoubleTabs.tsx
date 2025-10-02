@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, memo } from "react";
+import React from "react";
 import { categories } from "@/data/categories";
 import cn from "classnames/bind";
 import styles from "./DoubleTabs.module.scss";
@@ -10,8 +10,8 @@ import { adCardData, productNameToId } from "@/data/products";
 const cx = cn.bind(styles);
 
 function DoubleTabs() {
-  const [mainCategory, setMainCategory] = useState(categories[0].title);
-  const [subCategory, setSubCategory] = useState(categories[0].items[0]);
+  const [mainCategory, setMainCategory] = React.useState(categories[0].title);
+  const [subCategory, setSubCategory] = React.useState(categories[0].items[0]);
 
   const handleMainCategoryChange = (categoryTitle: string) => {
     const category = categories.find((cat) => cat.title === categoryTitle);
@@ -28,16 +28,16 @@ function DoubleTabs() {
   const currentCategory = categories.find((cat) => cat.title === mainCategory);
 
   return (
-    <div className={cx("container")}>
+    <div className={cx("Container")}>
       {/* 1차 탭 */}
-      <div className={cx("mainTabSection")}>
-        <div className={cx("tabContainer")}>
+      <div className={cx("MainTabSection")}>
+        <div className={cx("TabContainer")}>
           {categories.map((category) => (
-            <div className={cx("tabItem")} key={category.title}>
+            <div className={cx("TabItem")} key={category.title}>
               <button
                 onClick={() => handleMainCategoryChange(category.title)}
-                className={cx("mainTabButton", {
-                  active: mainCategory === category.title,
+                className={cx("MainTabButton", {
+                  Active: mainCategory === category.title,
                 })}
                 style={{
                   backgroundImage: `url(${category.image})`,
@@ -53,23 +53,23 @@ function DoubleTabs() {
       </div>
 
       {/* 2차 탭 */}
-      <div className={cx("subTabSection")}>
-        <div className={cx("tabContainer")}>
+      <div className={cx("SubTabSection")}>
+        <div className={cx("TabContainer")}>
           {currentCategory?.items.map((item) => (
             <div
               key={item}
               onClick={() => handleSubCategoryChange(item)}
-              className={cx("subTabButton", { active: subCategory === item })}
+              className={cx("SubTabButton", { Active: subCategory === item })}
             >
               {item}
             </div>
           ))}
         </div>
-        <div className={cx("separator")}></div>
+        <div className={cx("Separator")}></div>
       </div>
 
       {/* 현재 선택된 상태 표시 */}
-      <div className={cx("selectedStatus")}>
+      <div className={cx("SelectedStatus")}>
         <strong>
           <AdCard
             image={
@@ -94,4 +94,4 @@ function DoubleTabs() {
   );
 }
 
-export default memo(DoubleTabs);
+export default React.memo(DoubleTabs);

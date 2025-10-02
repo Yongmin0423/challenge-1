@@ -36,7 +36,7 @@ const SwiperComponent = ({
   loop = true,
 }: SwiperComponentProps) => {
   return (
-    <div className={cx("swiperContainer")}>
+    <div className={cx("SwiperContainer")}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={spaceBetween}
@@ -47,11 +47,11 @@ const SwiperComponent = ({
           autoplay ? { delay: 3000, disableOnInteraction: false } : false
         }
         loop={loop}
-        className={cx("swiper")}
+        className={cx("Swiper")}
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className={cx("slide")}>
-            <Link href={slide.link} className={cx("slideContent")}>
+          <SwiperSlide key={slide.id} className={cx("Slide")}>
+            <Link href={slide.link} className={cx("SlideContent")}>
               <Image
                 fill
                 src={slide.image}

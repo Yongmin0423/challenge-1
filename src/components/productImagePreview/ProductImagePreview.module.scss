@@ -1,11 +1,11 @@
-.gallery {
+.Gallery {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
 }
 
-.main-image {
+.MainImage {
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
@@ -13,12 +13,12 @@
   overflow: hidden;
   background-color: #f5f5f5;
 
-  .image {
+  .Image {
     object-fit: cover;
   }
 }
 
-.thumbnails {
+.Thumbnails {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
@@ -28,7 +28,7 @@
   }
 }
 
-.thumbnail {
+.Thumbnail {
   position: relative;
   aspect-ratio: 1/1;
   border-radius: 4px;
@@ -46,7 +46,7 @@
     opacity: 0.8;
   }
 
-  &.active {
+  &.Active {
     border-color: #000;
     opacity: 1;
   }
