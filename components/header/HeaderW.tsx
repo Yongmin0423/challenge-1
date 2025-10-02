@@ -32,10 +32,10 @@ export default function Header() {
           <Image src={Logo} alt="로고이미지" />
         </Link>
         <div>
-          <p>
+          <Link href="/cart">
             <CartIcon />
             장바구니
-          </p>
+          </Link>
         </div>
       </div>
       <div className={cx("header-bottom")}>

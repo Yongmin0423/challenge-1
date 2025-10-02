@@ -17,6 +17,7 @@ export function useOrderForm(product: Product) {
     watch,
     formState: { errors },
     trigger,
+    reset,
   } = useForm<OrderFormData>({
     defaultValues: {
       title: "",
@@ -76,13 +77,28 @@ export function useOrderForm(product: Product) {
   // 주문 제출 핸들러
   const onSubmit = (data: OrderFormData) => {
     console.log("주문 데이터:", data);
+    alert("주문 성공!");
+    reset();
+    setOptionSelections({});
+    // 파일 input도 초기화
+    const fileInput = document.getElementById("file-input") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
   };
 
   // 장바구니 추가 핸들러
   const handleAddToCart = async () => {
     const isValid = await trigger();
     if (isValid) {
-      console.log("장바구니 추가");
+      alert("장바구니 추가 완료!");
+      reset();
+      setOptionSelections({});
+      // 파일 input도 초기화
+      const fileInput = document.getElementById("file-input") as HTMLInputElement;
+      if (fileInput) {
+        fileInput.value = "";
+      }
     }
   };
 

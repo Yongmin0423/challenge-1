@@ -17,7 +17,13 @@ export default function ConsultationBanner() {
           <p>상담 후 상품명을 제작해 보세요.</p>
         </div>
       </div>
-      <button type="button" className={cx("button")}>
+      <button
+        onClick={() => {
+          alert("해당 기능은 준비중입니다.");
+        }}
+        type="button"
+        className={cx("button")}
+      >
         <Chat />
         <p>디자인 상담</p>
       </button>
