@@ -73,7 +73,7 @@ function DoubleTabs() {
         <strong>
           <AdCard
             image={
-              adCardData[subCategory]?.image || adCardData["수성현수막"].image
+              adCardData[subCategory]?.images[0] || adCardData["수성현수막"].images[0]
             }
             title={
               adCardData[subCategory]?.title || adCardData["수성현수막"].title
