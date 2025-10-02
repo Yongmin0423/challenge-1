@@ -17,14 +17,18 @@
 
 .zet-production {
   display: flex;
+
   align-items: center;
   flex-shrink: 0;
 
-  p {
+  a {
+    display: flex;
+    flex-direction: column;
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
   }
+
   p:first-child {
     color: #fd914b;
   }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, memo } from "react";
-import { categories } from "../allCategory/AllCategory";
+import { categories } from "@/data/categories";
 import cn from "classnames/bind";
 import styles from "./DoubleTabs.module.scss";
 import AdCard from "../adCard/AdCard";

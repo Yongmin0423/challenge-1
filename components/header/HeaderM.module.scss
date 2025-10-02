@@ -70,6 +70,28 @@
   }
 }
 
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
 .menu-content {
   padding: 20px;
   height: 100%;

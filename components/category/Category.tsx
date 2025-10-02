@@ -18,6 +18,18 @@ export default function Category({
   titleColor?: string;
   onLinkClick?: () => void;
 }) {
+  const handleItemClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: string
+  ) => {
+    if (item === "준비중") {
+      e.preventDefault();
+      alert("준비중인 상품입니다.");
+      return;
+    }
+    onLinkClick?.();
+  };
+
   return (
     <div className={cx('container')}>
       <div className={cx('title')}>
@@ -41,7 +53,7 @@ export default function Category({
                 key={index}
                 href={`/${productId || ''}`}
                 className={cx('item-link')}
-                onClick={onLinkClick}
+                onClick={(e) => handleItemClick(e, item)}
               >
                 {item}
               </Link>

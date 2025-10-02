@@ -55,6 +55,9 @@ export default function HeaderM() {
 
       {/* Side Menu */}
       <div className={cx("side-menu", { open: isMenuOpen })}>
+        <button className={cx("close-btn")} onClick={toggleMenu}>
+          ×
+        </button>
         <div className={cx("menu-content")}>
           <div className={cx("menu-top")}>
             <Link href="/login" onClick={toggleMenu}>
