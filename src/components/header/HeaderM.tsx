@@ -65,10 +65,10 @@ export default function HeaderM() {
         </button>
       </div>
 
-      {/* Overlay Background */}
+      {/* 백그라운드 */}
       {isMenuOpen && <div className={cx("Overlay")} onClick={toggleMenu}></div>}
 
-      {/* Side Menu */}
+      {/* 사이드 메뉴 */}
       <div className={cx("SideMenu", { Open: isMenuOpen })}>
         <button className={cx("CloseBtn")} onClick={toggleMenu}>
           ×

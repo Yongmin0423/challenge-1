@@ -526,13 +526,8 @@ export const adCardData: Record<string, Product> = {
 
   // 기타 카테고리들
   준비중: {
-    id: "misc-01",
-    images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
-    ],
+    id: "",
+    images: [],
     title: "준비중",
     description: "곧 출시될 예정인 상품입니다.",
     price: "문의",

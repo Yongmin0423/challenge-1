@@ -71,23 +71,26 @@ function DoubleTabs() {
       {/* 현재 선택된 상태 표시 */}
       <div className={cx("SelectedStatus")}>
         <strong>
-          <AdCard
-            image={
-              adCardData[subCategory]?.images[0] || adCardData["수성현수막"].images[0]
-            }
-            title={
-              adCardData[subCategory]?.title || adCardData["수성현수막"].title
-            }
-            description={
-              adCardData[subCategory]?.description ||
-              adCardData["수성현수막"].description
-            }
-            price={
-              adCardData[subCategory]?.price || adCardData["수성현수막"].price
-            }
-            productId={productNameToId[subCategory] || "misc-01"}
-            available={subCategory !== "준비중"} // "준비중"인 경우 주문 불가
-          />
+          {adCardData[subCategory] &&
+          adCardData[subCategory].images?.length > 0 &&
+          adCardData[subCategory].title ? (
+            <AdCard
+              image={adCardData[subCategory].images[0]}
+              title={adCardData[subCategory].title}
+              description={adCardData[subCategory].description}
+              price={adCardData[subCategory].price}
+              productId={productNameToId[subCategory]}
+              available={true}
+            />
+          ) : (
+            <AdCard
+              image="https://thumbnail.10x10.co.kr/webimage/image/basic600/237/B002376387.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"
+              title="준비중입니다"
+              description="해당 상품은 현재 준비중입니다. 빠른 시일 내에 찾아뵙겠습니다."
+              price="문의"
+              available={false}
+            />
+          )}
         </strong>
       </div>
     </div>
