@@ -76,7 +76,6 @@ export function useOrderForm(product: Product) {
 
   // 주문 제출 핸들러
   const onSubmit = (data: OrderFormData) => {
-    console.log("주문 데이터:", data);
     alert("주문 성공!");
     reset();
     setOptionSelections({});
@@ -95,7 +94,9 @@ export function useOrderForm(product: Product) {
       reset();
       setOptionSelections({});
       // 파일 input도 초기화
-      const fileInput = document.getElementById("file-input") as HTMLInputElement;
+      const fileInput = document.getElementById(
+        "file-input"
+      ) as HTMLInputElement;
       if (fileInput) {
         fileInput.value = "";
       }
