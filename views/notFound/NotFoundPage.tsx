@@ -1,0 +1,22 @@
+import Link from "next/link";
+import cn from "classnames/bind";
+import styles from "./NotFoundPage.module.scss";
+
+const cx = cn.bind(styles);
+
+export default function NotFoundPage() {
+  return (
+    <div className={cx("container")}>
+      <div className={cx("content")}>
+        <h1 className={cx("error-code")}>404</h1>
+        <h2 className={cx("title")}>페이지를 찾을 수 없습니다</h2>
+        <p className={cx("description")}>
+          요청하신 페이지가 존재하지 않거나 이동되었습니다.
+        </p>
+        <Link href="/">
+          <button className={cx("home-button")}>홈으로 돌아가기</button>
+        </Link>
+      </div>
+    </div>
+  );
+}
