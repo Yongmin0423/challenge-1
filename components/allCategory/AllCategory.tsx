@@ -1,4 +1,4 @@
-import Category from "./Category";
+import Category from "../category/Category";
 import cn from "classnames/bind";
 import styles from "./AllCategory.module.scss";
 import ChevronRight from "@/assets/icons/ChevronRight";
@@ -8,7 +8,8 @@ const cx = cn.bind(styles);
 export const categories = [
   {
     title: "현수막",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1_fyyb9_ruJMu4ZpDJfiHDzOi70aKEcpb1A&s",
     items: [
       "수성현수막",
       "솔벤현수막",
@@ -65,15 +66,19 @@ export const categories = [
   },
 ];
 
-export default function AllCategory({ onLinkClick }: { onLinkClick?: () => void }) {
+export default function AllCategory({
+  onLinkClick,
+}: {
+  onLinkClick?: () => void;
+}) {
   return (
-    <div className={cx('container')}>
-      <div className={cx('zet-production')}>
+    <div className={cx("container")}>
+      <div className={cx("zet-production")}>
         <div>
           <p>제트상품</p>
           <p>~11시 이전</p>
         </div>
-        <div className={cx('icon')}>
+        <div className={cx("icon")}>
           <ChevronRight />
         </div>
       </div>

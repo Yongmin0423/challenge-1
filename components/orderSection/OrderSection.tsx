@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import Input from "@/components/input/Input";
 import {
   Select,
@@ -13,6 +12,9 @@ import {
 } from "@/components/select/Select";
 import ConsultationBanner from "@/components/consultationBanner/ConsultationBanner";
 import { Product } from "@/data/products";
+import { formatPrice } from "@/utils/price";
+import { useOrderForm } from "@/hooks/useOrderForm";
+import { useOrderPrice } from "@/hooks/useOrderPrice";
 import cn from "classnames/bind";
 import styles from "./OrderSection.module.scss";
 import Caution from "@/assets/icons/Caution";
@@ -24,112 +26,29 @@ interface OrderSectionProps {
   product: Product;
 }
 
-interface OrderFormData {
-  title: string;
-  quantity: number | null;
-  file: File | null;
-}
-
 export default function OrderSection({ product }: OrderSectionProps) {
   const {
     control,
+    errors,
     handleSubmit,
-    setValue,
-    watch,
-    formState: { errors },
-    trigger,
-  } = useForm<OrderFormData>({
-    defaultValues: {
-      title: "",
-      quantity: null,
-      file: null,
-    },
-    mode: "onChange",
-  });
+    quantity,
+    uploadedFile,
+    optionSelections,
+    selectedOptionValues,
+    handleQuantityChange,
+    handleOptionChange,
+    handleFileUpload,
+    handleFileRemove,
+    handleUploadButtonClick,
+    handleAddToCart,
+    onSubmit,
+  } = useOrderForm(product);
 
-  const quantity = watch("quantity");
-  const uploadedFile = watch("file");
-
-  // 선택값 state 관리
-  const [optionSelections, setOptionSelections] = useState<
-    Record<string, number>
-  >({});
-  const [selectedOptionValues, setSelectedOptionValues] = useState<
-    Record<string, string>
-  >({});
-
-  // 가격 포맷팅 함수
-  const formatPrice = (price: number) => {
-    return price.toLocaleString("ko-KR");
-  };
-
-  // 총 가격 계산
-  const productPrice =
-    quantity && product.basePrice ? product.basePrice * quantity : 0;
-  const optionsPrice = Object.values(optionSelections).reduce(
-    (sum, price) => sum + price,
-    0
+  const { productPrice, totalPrice } = useOrderPrice(
+    product,
+    quantity,
+    optionSelections
   );
-  const totalPrice = productPrice + optionsPrice;
-
-  // 수량 변경 핸들러
-  const handleQuantityChange = (value: string) => {
-    const selected = product.quantities?.find((q) => q.label === value);
-    if (selected) {
-      setValue("quantity", selected.value, { shouldValidate: true });
-    }
-  };
-
-  // 옵션 변경 핸들러
-  const handleOptionChange = (
-    optionLabel: string,
-    itemName: string,
-    itemPrice: number
-  ) => {
-    setOptionSelections((prev) => ({
-      ...prev,
-      [optionLabel]: itemPrice,
-    }));
-    setSelectedOptionValues((prev) => ({
-      ...prev,
-      [optionLabel]: itemName,
-    }));
-  };
-
-  // 파일 업로드 핸들러
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setValue("file", file, { shouldValidate: true });
-    }
-  };
-
-  // 파일 업로드 버튼 클릭 핸들러
-  const handleUploadButtonClick = () => {
-    document.getElementById("file-input")?.click();
-  };
-
-  const handleFileRemove = () => {
-    setValue("file", null, { shouldValidate: true });
-    // input 요소도 초기화
-    const fileInput = document.getElementById("file-input") as HTMLInputElement;
-    if (fileInput) {
-      fileInput.value = "";
-    }
-  };
-
-  // 주문 제출 핸들러
-  const onSubmit = (data: OrderFormData) => {
-    console.log("주문 데이터:", data);
-  };
-
-  // 장바구니 추가 핸들러
-  const handleAddToCart = async () => {
-    const isValid = await trigger(["quantity", "file"]);
-    if (isValid) {
-      console.log("장바구니 추가");
-    }
-  };
 
   return (
     <div className={cx("order-section")}>
@@ -180,32 +99,40 @@ export default function OrderSection({ product }: OrderSectionProps) {
             />
           )}
           {product.options?.map((option) => (
-            <div key={option.label}>
-              <Select
-                value={selectedOptionValues[option.label] || ""}
-                onValueChange={(value) => {
-                  const item = option.items.find(
-                    (i: { name: string; price: number }) => i.name === value
-                  );
-                  if (item) {
-                    handleOptionChange(option.label, item.name, item.price);
-                  }
-                }}
-              >
-                <SelectLabel htmlFor={option.label}>{option.label}</SelectLabel>
-                <SelectTrigger>
-                  <SelectValue placeholder={`${option.label}을 선택하세요`} />
-                </SelectTrigger>
-                <SelectContent>
-                  {option.items.map((item: { name: string; price: number }) => (
-                    <SelectItem key={item.name} value={item.name}>
-                      {item.name}
-                      {item.price > 0 && ` (${formatPrice(item.price)}원)`}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+            <Controller
+              key={option.label}
+              name={`options.${option.label}` as const}
+              control={control}
+              rules={{ required: `${option.label}을 선택해주세요` }}
+              render={({ field }) => (
+                <Select
+                  value={field.value || ""}
+                  onValueChange={(value) => {
+                    const item = option.items.find(
+                      (i: { name: string; price: number }) => i.name === value
+                    );
+                    if (item) {
+                      field.onChange(value);
+                      handleOptionChange(option.label, item.name, item.price);
+                    }
+                  }}
+                  error={errors.options?.[option.label]}
+                >
+                  <SelectLabel htmlFor={option.label}>{option.label}</SelectLabel>
+                  <SelectTrigger>
+                    <SelectValue placeholder={`${option.label}을 선택하세요`} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {option.items.map((item: { name: string; price: number }) => (
+                      <SelectItem key={item.name} value={item.name}>
+                        {item.name}
+                        {item.price > 0 && ` (${formatPrice(item.price)}원)`}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
+            />
           ))}
         </div>
         <Controller
