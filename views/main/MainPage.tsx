@@ -15,6 +15,7 @@ import {
   examples,
   bestSellingProducts,
 } from "@/data/mainPageData";
+import Link from "next/link";
 
 const cx = cn.bind(styles);
 
@@ -43,9 +44,9 @@ export default function MainPage() {
       </div>
 
       <div className={cx("fullWidth")}>
-        <div className={cx("middle-image")}>
+        <Link href="/AdBanner" className={cx("middle-image")}>
           <Image fill src={AdBanner} alt="광고 이미지" />
-        </div>
+        </Link>
       </div>
 
       <div className={cx("contentContainer")}>
@@ -61,7 +62,6 @@ export default function MainPage() {
         </div>
       </div>
 
-      {/* Full width bottom swiper */}
       <div className={cx("fullWidth")}>
         <SwiperComponent slides={bottomSlides} />
       </div>
