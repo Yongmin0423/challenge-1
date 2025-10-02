@@ -13,8 +13,8 @@ export default function NotFoundPage() {
         <p className={cx("description")}>
           요청하신 페이지가 존재하지 않거나 이동되었습니다.
         </p>
-        <Link href="/">
-          <button className={cx("home-button")}>홈으로 돌아가기</button>
+        <Link href="/" className={cx("home-button")}>
+          홈으로 돌아가기
         </Link>
       </div>
     </div>
