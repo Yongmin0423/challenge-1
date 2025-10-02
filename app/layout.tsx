@@ -3,6 +3,7 @@ import HeaderW from "@/components/header/HeaderW";
 import HeaderM from "@/components/header/HeaderM";
 import FooterW from "@/components/footer/FooterW";
 import FooterM from "@/components/footer/FooterM";
+import MainLayout from "@/layouts/mainLayout/MainLayout";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
         </nav>
 
         <main>
-          {children}
+          <MainLayout>{children}</MainLayout>
         </main>
 
         <footer>
