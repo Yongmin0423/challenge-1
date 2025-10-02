@@ -8,7 +8,6 @@ import cn from "classnames/bind";
 import styles from "./MainPage.module.scss";
 import AdBanner from "@/assets/images/AD.png";
 import Image from "next/image";
-import ConsultationBanner from "@/components/consultationBanner/ConsultationBanner";
 import {
   topSlides,
   bottomSlides,
