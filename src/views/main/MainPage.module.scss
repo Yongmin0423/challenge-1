@@ -24,15 +24,6 @@
   max-width: 1440px;
   display: flex;
   justify-content: center;
-  padding: 0 180px;
-
-  @media (max-width: 1440px) {
-    padding: 0 32px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 16px;
-  }
 }
 
 .Content {
@@ -54,6 +45,7 @@
 .Tabs {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .MiddleImage {

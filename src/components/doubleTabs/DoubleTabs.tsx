@@ -70,28 +70,26 @@ function DoubleTabs() {
 
       {/* 현재 선택된 상태 표시 */}
       <div className={cx("SelectedStatus")}>
-        <strong>
-          {adCardData[subCategory] &&
-          adCardData[subCategory].images?.length > 0 &&
-          adCardData[subCategory].title ? (
-            <AdCard
-              image={adCardData[subCategory].images[0]}
-              title={adCardData[subCategory].title}
-              description={adCardData[subCategory].description}
-              price={adCardData[subCategory].price}
-              productId={productNameToId[subCategory]}
-              available={true}
-            />
-          ) : (
-            <AdCard
-              image="https://thumbnail.10x10.co.kr/webimage/image/basic600/237/B002376387.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"
-              title="준비중입니다"
-              description="해당 상품은 현재 준비중입니다. 빠른 시일 내에 찾아뵙겠습니다."
-              price="문의"
-              available={false}
-            />
-          )}
-        </strong>
+        {adCardData[subCategory] &&
+        adCardData[subCategory].images?.length > 0 &&
+        adCardData[subCategory].title ? (
+          <AdCard
+            image={adCardData[subCategory].images[0]}
+            title={adCardData[subCategory].title}
+            description={adCardData[subCategory].description}
+            price={adCardData[subCategory].price}
+            productId={productNameToId[subCategory]}
+            available={true}
+          />
+        ) : (
+          <AdCard
+            image="https://thumbnail.10x10.co.kr/webimage/image/basic600/237/B002376387.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"
+            title="준비중입니다"
+            description="해당 상품은 현재 준비중입니다. 빠른 시일 내에 찾아뵙겠습니다."
+            price="문의"
+            available={false}
+          />
+        )}
       </div>
     </div>
   );
