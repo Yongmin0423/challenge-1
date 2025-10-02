@@ -7,6 +7,10 @@
   padding: 8px;
   position: relative;
   z-index: 1000;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
 }
 
 .Logo {
@@ -205,11 +209,5 @@
       padding-left: 40px;
       padding-right: 20px;
     }
-  }
-}
-
-@media (min-width: 769px) {
-  .HeaderMobile {
-    display: none;
   }
 }

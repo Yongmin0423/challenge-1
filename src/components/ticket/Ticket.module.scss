@@ -1,6 +1,12 @@
 .Container {
   display: flex;
   justify-content: center;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 .Image {
@@ -23,16 +29,7 @@
     line-height: 24px;
     color: #505254;
   }
-}
-
-@media (max-width: 768px) {
-  .Container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .Content {
+  @media (max-width: 768px) {
     padding: 0px;
     display: flex;
     flex-direction: column;
