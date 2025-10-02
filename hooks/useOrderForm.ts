@@ -30,12 +30,9 @@ export function useOrderForm(product: Product) {
   const quantity = watch("quantity");
   const uploadedFile = watch("file");
 
-  // 선택값 state 관리
+  // 옵션 가격 state 관리
   const [optionSelections, setOptionSelections] = useState<
     Record<string, number>
-  >({});
-  const [selectedOptionValues, setSelectedOptionValues] = useState<
-    Record<string, string>
   >({});
 
   // 수량 변경 핸들러
@@ -47,18 +44,10 @@ export function useOrderForm(product: Product) {
   };
 
   // 옵션 변경 핸들러
-  const handleOptionChange = (
-    optionLabel: string,
-    itemName: string,
-    itemPrice: number
-  ) => {
+  const handleOptionChange = (optionLabel: string, itemPrice: number) => {
     setOptionSelections((prev) => ({
       ...prev,
       [optionLabel]: itemPrice,
-    }));
-    setSelectedOptionValues((prev) => ({
-      ...prev,
-      [optionLabel]: itemName,
     }));
   };
 
@@ -104,7 +93,6 @@ export function useOrderForm(product: Product) {
     quantity,
     uploadedFile,
     optionSelections,
-    selectedOptionValues,
     handleQuantityChange,
     handleOptionChange,
     handleFileUpload,

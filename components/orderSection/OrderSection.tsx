@@ -34,7 +34,6 @@ export default function OrderSection({ product }: OrderSectionProps) {
     quantity,
     uploadedFile,
     optionSelections,
-    selectedOptionValues,
     handleQuantityChange,
     handleOptionChange,
     handleFileUpload,
@@ -54,6 +53,7 @@ export default function OrderSection({ product }: OrderSectionProps) {
     <div className={cx("order-section")}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={cx("order-form")}>
+          {/* 제작물 제목 폼*/}
           <Controller
             name="title"
             control={control}
@@ -67,6 +67,8 @@ export default function OrderSection({ product }: OrderSectionProps) {
               />
             )}
           />
+
+          {/* 수량 입력 폼 */}
           {product.quantities && (
             <Controller
               name="quantity"
@@ -98,6 +100,8 @@ export default function OrderSection({ product }: OrderSectionProps) {
               )}
             />
           )}
+
+          {/* 제품 별 상세 옵션 Select */}
           {product.options?.map((option) => (
             <Controller
               key={option.label}
@@ -113,28 +117,34 @@ export default function OrderSection({ product }: OrderSectionProps) {
                     );
                     if (item) {
                       field.onChange(value);
-                      handleOptionChange(option.label, item.name, item.price);
+                      handleOptionChange(option.label, item.price);
                     }
                   }}
                   error={errors.options?.[option.label]}
                 >
-                  <SelectLabel htmlFor={option.label}>{option.label}</SelectLabel>
+                  <SelectLabel htmlFor={option.label}>
+                    {option.label}
+                  </SelectLabel>
                   <SelectTrigger>
                     <SelectValue placeholder={`${option.label}을 선택하세요`} />
                   </SelectTrigger>
                   <SelectContent>
-                    {option.items.map((item: { name: string; price: number }) => (
-                      <SelectItem key={item.name} value={item.name}>
-                        {item.name}
-                        {item.price > 0 && ` (${formatPrice(item.price)}원)`}
-                      </SelectItem>
-                    ))}
+                    {option.items.map(
+                      (item: { name: string; price: number }) => (
+                        <SelectItem key={item.name} value={item.name}>
+                          {item.name}
+                          {item.price > 0 && ` (${formatPrice(item.price)}원)`}
+                        </SelectItem>
+                      )
+                    )}
                   </SelectContent>
                 </Select>
               )}
             />
           ))}
         </div>
+
+        {/* 디자인 파일 업로드 */}
         <Controller
           name="file"
           control={control}
@@ -162,9 +172,13 @@ export default function OrderSection({ product }: OrderSectionProps) {
             </div>
           )}
         />
+
+        {/* 상담 배너 */}
         <div>
           <ConsultationBanner />
         </div>
+
+        {/* 가격 */}
         <div className={cx("price")}>
           <div className={cx("item")}>
             <p>상품 금액</p>
@@ -187,12 +201,16 @@ export default function OrderSection({ product }: OrderSectionProps) {
             </div>
           </div>
         </div>
+
+        {/* 버튼 */}
         <div className={cx("button")}>
           <button type="button" onClick={handleAddToCart}>
             장바구니
           </button>
           <button type="submit">주문하기</button>
         </div>
+
+        {/* 주의사항 */}
         <div className={cx("caution-box")}>
           <div className={cx("caution-title")}>
             <Caution />
